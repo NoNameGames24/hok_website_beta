@@ -1,0 +1,355 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1114;
+  --bg-soft: #151b1f;
+  --stone: #20282d;
+  --iron: #31383c;
+  --frost: #9bc4cf;
+  --frost-strong: #c7e4ea;
+  --rune: #c7aa74;
+  --text: #f0eee7;
+  --muted: #b8c0c1;
+  --line: rgba(199, 170, 116, 0.24);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(155, 196, 207, 0.16), transparent 28rem),
+    linear-gradient(135deg, rgba(199, 170, 116, 0.08) 0 1px, transparent 1px 24px),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1rem, 4vw, 4rem);
+  background: rgba(13, 17, 20, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--rune);
+  background: linear-gradient(145deg, #2a3034, #121719);
+  color: var(--rune);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.main-nav a {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  border-color: var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero,
+.section {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  min-height: calc(100vh - 4.7rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  padding: clamp(3rem, 8vw, 7rem) 0;
+}
+
+.hero h1 {
+  max-width: 13ch;
+  margin: 0 0 1rem;
+  font-size: clamp(3rem, 9vw, 6.7rem);
+  line-height: 0.93;
+}
+
+.hero p {
+  max-width: 55rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--rune);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.button,
+.download-grid a,
+.link-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.button.primary {
+  background: var(--rune);
+  border-color: var(--rune);
+  color: #111;
+}
+
+.button.secondary,
+.download-grid a,
+.link-list a {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-panel,
+.stone-card,
+.feature-grid article,
+.steps article {
+  background: linear-gradient(180deg, rgba(32, 40, 45, 0.94), rgba(18, 23, 26, 0.94));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 1.25rem;
+}
+
+.hero-panel dl {
+  margin: 0;
+}
+
+.hero-panel div {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-panel div:last-child {
+  border-bottom: 0;
+}
+
+.hero-panel dt {
+  color: var(--rune);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.hero-panel dd {
+  margin: 0.25rem 0 0;
+  color: var(--frost-strong);
+}
+
+.section {
+  padding: clamp(3rem, 7vw, 6rem) 0;
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.section h3 {
+  margin: 0 0 0.6rem;
+  color: var(--frost-strong);
+}
+
+.section p {
+  color: var(--muted);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.stone-card {
+  padding: 1.25rem;
+}
+
+.check-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.check-list li + li {
+  margin-top: 0.5rem;
+}
+
+.frost-band {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(1rem, calc((100vw - 1180px) / 2));
+  background:
+    linear-gradient(90deg, rgba(155, 196, 207, 0.06), rgba(199, 170, 116, 0.06)),
+    rgba(255, 255, 255, 0.025);
+  border-block: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.steps,
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.steps article,
+.feature-grid article {
+  padding: 1rem;
+}
+
+.steps span {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-bottom: 0.75rem;
+  background: var(--rune);
+  color: #111;
+  font-weight: 900;
+}
+
+.download-grid,
+.link-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.link-list {
+  grid-template-columns: 1fr;
+  margin-top: 0;
+}
+
+.download-grid a:hover,
+.link-list a:hover,
+.button.secondary:hover {
+  border-color: var(--rune);
+  color: var(--frost-strong);
+}
+
+.site-footer {
+  padding: 2rem clamp(1rem, 4vw, 4rem);
+  border-top: 1px solid var(--line);
+  background: #080b0d;
+  color: var(--muted);
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 920px) {
+  .site-header,
+  .hero,
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .steps,
+  .feature-grid,
+  .download-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    position: static;
+    display: block;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .steps,
+  .feature-grid,
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
+}
