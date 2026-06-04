@@ -1,0 +1,27 @@
+{
+  "version": "v11-hotfix",
+  "summary": "Designüberarbeitung im eigenständigen Gothic-/Nordmar-Stil; Wiki-Vollimport und Seitenfunktionen aus v4 beibehalten.",
+  "completed": [
+    "20 Wiki-HTML-Seiten importiert",
+    "lokale Einzelseiten erzeugt",
+    "interne Links auf lokale Dateien umgebogen",
+    "referenzierte Medien kopiert",
+    "Wiki-Index aktualisiert",
+    "Statusseite aktualisiert",
+    "neues Homepage-Layout umgesetzt",
+    "Topbar/Footer neu gestaltet",
+    "Parchment-/Holz-/Stahl-UI eingeführt",
+    "bestehende Wiki- und Suchfunktionen erhalten",
+    "lokale Linkprüfung nach Umbau durchgeführt"
+  ],
+  "open": [
+    "Feinschliff mit echtem Browser-/Gerätetest nach Deployment",
+    "externe Download-Dateien selbst sind weiterhin nur verlinkt, nicht Bestandteil des Wiki-Exports"
+  ],
+  "latest_update": "Design-Pass v6: Nordmar-Hero, neue UI-Grafiken, stärkere Typografie, näher am erzeugten Mockup-Stil.",
+  "checks": {
+    "v6_design_assets": "created"
+  },
+  "lastUpdate": "2026-06-05",
+  "notes": "Hotfix: lokal gespeicherte YouTube-Embed-Dateien und deren vendored JS wurden entfernt, weil darin Google-API-Keys aus YouTube-Code enthalten waren. Das Video wird nur noch extern über youtube-nocookie eingebunden."
+}
