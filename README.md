@@ -1,4 +1,8 @@
-# History of Khorinis Website · Version 5
+# History of Khorinis Website · Version 6
+
+Statische GitHub-Pages-Website für History of Khorinis Roleplay. Version 6 enthält den vollständigen Wiki-Import aus der gelieferten ZIP und einen deutlich weiterentwickelten Nordmar-/Gothic-inspirierten Homepage-Look mit neu generierten Originalgrafiken.
+
+# History of Khorinis Website · Version 6
 
 Statische GitHub-Pages-Website für **History of Khorinis Roleplay**.
 

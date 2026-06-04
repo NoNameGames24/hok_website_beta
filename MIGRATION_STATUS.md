@@ -1,3 +1,36 @@
+# Migration Status · Version 6
+
+Version 6 ersetzt Version 5 vollständig.
+
+## Stand
+
+- Vollimport der gelieferten Wiki-HTML-Seiten bleibt erhalten.
+- Statische GitHub-Pages-Struktur bleibt erhalten.
+- Lokale Suche, Wiki-Index, Unterseiten und Projektlog bleiben erhalten.
+- Design-Pass v6: stärker an der zuvor erzeugten Homepage-Optik ausgerichtet.
+
+## Neu in v6
+
+- Neuer eigenständiger Nordmar-Nacht-Hero (`assets/images/hero-nordmar-night.webp`).
+- Neue originale UI-Grafiken für Holz-/Bronze-/Pergament-Optik.
+- Überarbeitete Startseite mit stärkerer Logo-/Typografie-Hierarchie.
+- Blackletter-/Cinzel-Typografie über offene Webfonts; keine Fontdateien eingebettet.
+- Holz-/Pergament-Fenster, Schnellstart-Karten, Section-Plaketten und Footer deutlich näher am Mockup-Stil.
+- Subseiten auf ein einheitliches Nordmar-Hero-Design umgestellt.
+
+## Nicht übernommen
+
+- Das zuvor generierte Mockup-Bild selbst wurde nicht als Website-Bild eingebaut.
+- DokuWiki-Backend-Funktionen wie Login, Bearbeiten, Medienmanager, Versionshistorie und serverseitige Suche bleiben ausgeschlossen.
+
+## Technische Notiz
+
+Die v6 nutzt lokale HoK-Assets plus neu generierte Originalgrafiken. Sie kopiert keine fremde Gothic-/Piranha-Bytes-Oberfläche und bindet keine Spielscreenshots aus externen Quellen ein.
+
+---
+
+Vorheriger Stand:
+
 # Migration Status · v5
 
 ## Ergebnis
@@ -35,3 +68,4 @@ Nicht übernommen wurden DokuWiki-Funktionen, die serverseitig sind: Login, Bear
 ## Designstand v5
 
 Die Website wurde optisch neu aufgebaut: dunkle Holz-Navigation, großer Nordmar-Hero, Pergamentflächen, Holztafeln, bronzene Akzente, Systemkarten, Galerie-/Wiki-Streifen und neuer Footer. Der Wiki-Inhalt aus dem gelieferten Export bleibt erhalten. Das zuvor generierte Bild dient nur als Stilrichtung und ist nicht als Asset eingebunden.
+

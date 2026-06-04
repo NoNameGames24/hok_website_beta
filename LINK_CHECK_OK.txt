@@ -1,1 +1,1 @@
-OK v5: all local HTML/asset references found after design rebuild.
+OK: local HTML/CSS references checked for v6.

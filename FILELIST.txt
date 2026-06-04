@@ -7,6 +7,10 @@ README.md
 armbrust.html
 assets/css/styles.css
 assets/favicon.ico
+assets/images/card-board-v6.webp
+assets/images/frame-parchment-v6.webp
+assets/images/heading-plaque-v6.webp
+assets/images/hero-nordmar-night.webp
 assets/images/hok-logo-gold-bg.webp
 assets/images/hok-logo-gold-transparent.png
 assets/images/hok-logo-gold-transparent.webp
@@ -14,6 +18,8 @@ assets/images/hok-logo-red.png
 assets/images/hok-logo-red.webp
 assets/images/hok-rp-card.webp
 assets/images/ingame-trio.webp
+assets/images/logo-lockup-v6.webp
+assets/images/nav-ornament-v6.webp
 assets/images/notice-board.webp
 assets/images/painting-02.webp
 assets/images/painting-03.webp
