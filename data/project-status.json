@@ -1,17 +1,21 @@
 {
-  "version": "v4",
-  "summary": "Vollimport aus hochgeladener Wiki-ZIP abgeschlossen.",
+  "version": "v5",
+  "summary": "Designüberarbeitung im eigenständigen Gothic-/Nordmar-Stil; Wiki-Vollimport und Seitenfunktionen aus v4 beibehalten.",
   "completed": [
     "20 Wiki-HTML-Seiten importiert",
     "lokale Einzelseiten erzeugt",
     "interne Links auf lokale Dateien umgebogen",
     "referenzierte Medien kopiert",
     "Wiki-Index aktualisiert",
-    "Statusseite aktualisiert"
+    "Statusseite aktualisiert",
+    "neues Homepage-Layout umgesetzt",
+    "Topbar/Footer neu gestaltet",
+    "Parchment-/Holz-/Stahl-UI eingeführt",
+    "bestehende Wiki- und Suchfunktionen erhalten",
+    "lokale Linkprüfung nach Umbau durchgeführt"
   ],
   "open": [
-    "Feinschliff Design/Typografie je Unterseite",
-    "Download-Dateien selbst liegen nicht im Export und wurden nicht ergänzt",
-    "DokuWiki-Backend-Funktionen sind statisch nicht verfügbar"
+    "Feinschliff mit echtem Browser-/Gerätetest nach Deployment",
+    "externe Download-Dateien selbst sind weiterhin nur verlinkt, nicht Bestandteil des Wiki-Exports"
   ]
 }

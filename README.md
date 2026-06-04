@@ -1,4 +1,4 @@
-# History of Khorinis Website · Version 4
+# History of Khorinis Website · Version 5
 
 Statische GitHub-Pages-Website für **History of Khorinis Roleplay**.
 
@@ -24,3 +24,10 @@ Statische GitHub-Pages-Website für **History of Khorinis Roleplay**.
 ## Nicht enthalten
 
 DokuWiki-Backend-Funktionen wie Login, Bearbeiten, Medienmanager und Versionshistorie sind keine Inhalte der statischen Homepage und wurden nicht übernommen.
+
+
+## Stand v5
+
+- Neues, eigenständiges Gothic-/Nordmar-inspiriertes Design umgesetzt.
+- Das generierte Mockup-Bild wird **nicht** als Website-Asset verwendet. Die Umsetzung nutzt lokale/projekteigene Assets, CSS, HTML und die bereits gelieferten HoK-Bilder.
+- Inhalte, Wiki-Vollimport, lokale Suche, Einzelseiten und Linkstruktur aus v4 wurden beibehalten.

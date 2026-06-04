@@ -1,4 +1,4 @@
-# Migration Status · v4
+# Migration Status · v5
 
 ## Ergebnis
 
@@ -30,3 +30,8 @@ Der hochgeladene vollständige Wiki-Export wurde verarbeitet. Alle 20 enthaltene
 ## Technische Grenzen
 
 Nicht übernommen wurden DokuWiki-Funktionen, die serverseitig sind: Login, Bearbeiten, Medienmanager, Revisionen, serverseitige Suche. Externe Download-Dateien, die nur verlinkt sind, wurden nicht heruntergeladen oder erfunden.
+
+
+## Designstand v5
+
+Die Website wurde optisch neu aufgebaut: dunkle Holz-Navigation, großer Nordmar-Hero, Pergamentflächen, Holztafeln, bronzene Akzente, Systemkarten, Galerie-/Wiki-Streifen und neuer Footer. Der Wiki-Inhalt aus dem gelieferten Export bleibt erhalten. Das zuvor generierte Bild dient nur als Stilrichtung und ist nicht als Asset eingebunden.
