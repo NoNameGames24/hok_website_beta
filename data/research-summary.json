@@ -1,0 +1,17 @@
+{
+  "generated": "2026-06-04",
+  "truth_status": "Weitere offizielle Suchindex-Snippets übernommen. Direkter Volltextabruf der DokuWiki-Seiten blieb unzuverlässig.",
+  "new_in_v3": [
+    "Startseitenfragmente zu GMP und Charakterwissen ergänzt",
+    "Regeln mit Namensbeispielen, Tempo, Verletzungen und Emote-Beispiel erweitert",
+    "Berufsliste erweitert",
+    "Lernpunkte und Schadenstypen als eigene Seiten ergänzt",
+    "Wiki-Quellenaudit ergänzt"
+  ],
+  "not_done": [
+    "vollständiger Original-Volltext",
+    "exakte Regel- und Systemtabellen",
+    "Serverfinanzen",
+    "Credits"
+  ]
+}

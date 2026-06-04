@@ -1,0 +1,17 @@
+{
+  "version": "v4",
+  "summary": "Vollimport aus hochgeladener Wiki-ZIP abgeschlossen.",
+  "completed": [
+    "20 Wiki-HTML-Seiten importiert",
+    "lokale Einzelseiten erzeugt",
+    "interne Links auf lokale Dateien umgebogen",
+    "referenzierte Medien kopiert",
+    "Wiki-Index aktualisiert",
+    "Statusseite aktualisiert"
+  ],
+  "open": [
+    "Feinschliff Design/Typografie je Unterseite",
+    "Download-Dateien selbst liegen nicht im Export und wurden nicht ergänzt",
+    "DokuWiki-Backend-Funktionen sind statisch nicht verfügbar"
+  ]
+}

@@ -1,18 +1,26 @@
-# History of Khorinis Website
+# History of Khorinis Website · Version 4
 
-Statische GitHub-Pages-Grundstruktur für das Hobbyprojekt "History of Khorinis Roleplay".
+Statische GitHub-Pages-Website für **History of Khorinis Roleplay**.
 
-## Dateien
+## Stand v4
 
-- `index.html` - erste Landingpage und Informationsstruktur
-- `styles.css` - Gothic-/Nordmar-inspirierte Gestaltung ohne externe Assets
-- `CONTENT_AUDIT.md` - Inhaltsinventur und offene Migration
-- `PROJECT_LOG.md` - Arbeitslog und nächster Stand
+- Alle 20 HTML-Seiten aus `[History of Khorinis Wiki Full].zip` wurden als lokale Seiten übernommen.
+- Interne Wiki-Links wurden auf lokale HTML-Dateien umgebogen.
+- Referenzierte Bilder/Medien aus dem Export wurden nach `assets/wiki/` kopiert.
+- Die alte Snippet-Basis wurde durch den vollständigen Export ersetzt.
 
-## Vorschau
+## Start
 
-Die Seite ist statisch und kann direkt im Browser geöffnet werden. Für Tobias wird normalerweise kein lokaler Preview-Server gestartet; später soll das Projekt über GitHub Pages geöffnet werden.
+`index.html` im Browser öffnen oder das Projekt in GitHub Pages veröffentlichen.
 
-## Status
+## Wichtige Seiten
 
-Erster Grundaufbau. Die vollständige Detailmigration der Wiki-Inhalte ist noch offen.
+- `installation.html` – vollständige manuelle Installation aus dem Wiki-Export
+- `rpleitfaden.html` – vollständiger RP-Leitfaden
+- `regeln.html` – vollständiges Regelwerk aus dem Export
+- `wiki.html` – lokaler Index aller importierten Wiki-Seiten
+- `status.html` – Importprüfung und technische Grenzen
+
+## Nicht enthalten
+
+DokuWiki-Backend-Funktionen wie Login, Bearbeiten, Medienmanager und Versionshistorie sind keine Inhalte der statischen Homepage und wurden nicht übernommen.
