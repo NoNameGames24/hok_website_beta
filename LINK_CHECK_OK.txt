@@ -1,1 +1,0 @@
-OK: local HTML/CSS references checked for v6.
