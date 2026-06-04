@@ -1,0 +1,292 @@
+[
+  {
+    "id": "start",
+    "title": "History of Khorinis",
+    "file": "setting.html",
+    "group": "Hauptseite",
+    "source_file": "History of Khorinis [History of Khorinis].htm",
+    "text_length": 2701,
+    "headings": [
+      "History of Khorinis"
+    ],
+    "hash": "371cde4573ef0712"
+  },
+  {
+    "id": "rpleitfaden",
+    "title": "RP Leitfaden für Neulinge",
+    "file": "rpleitfaden.html",
+    "group": "Einstieg",
+    "source_file": "RP Leitfaden für Neulinge [History of Khorinis].htm",
+    "text_length": 6384,
+    "headings": [
+      "RP Leitfaden für Neulinge",
+      "Was bedeutet Rollenspiel",
+      "Wie erstelle ich meinen Charakter",
+      "Wie funktioniert Rollenspiel",
+      "Aspekt 1: Das, was du tust",
+      "Aspekt 2: Das, was du sagst",
+      "Aspekt 3: Die Interaktion mit einem anderen Spieler",
+      "Was ist Konflikt RP"
+    ],
+    "hash": "85c662c948bb041e"
+  },
+  {
+    "id": "manuelleinstallation",
+    "title": "Manuelle Installation",
+    "file": "installation.html",
+    "group": "Einstieg",
+    "source_file": "Manuelle Installation [History of Khorinis].htm",
+    "text_length": 1008,
+    "headings": [
+      "Manuelle Installation"
+    ],
+    "hash": "844eb9fa6fad25dd"
+  },
+  {
+    "id": "regeln",
+    "title": "Regeln des Servers",
+    "file": "regeln.html",
+    "group": "Pflicht",
+    "source_file": "Regeln des Servers [History of Khorinis].htm",
+    "text_length": 10206,
+    "headings": [
+      "Regeln des Servers",
+      "Allgemeine Regeln",
+      "Gefangennahmen",
+      "Tötungen",
+      "Folter",
+      "Überfälle",
+      "Spacer",
+      "E-RP",
+      "Raids",
+      "Gildenleiter"
+    ],
+    "hash": "55405a58363093d8"
+  },
+  {
+    "id": "berufe",
+    "title": "Berufe",
+    "file": "berufe.html",
+    "group": "Systeme",
+    "source_file": "Berufe [History of Khorinis].htm",
+    "text_length": 4468,
+    "headings": [
+      "Berufe",
+      "Allgemein",
+      "Berufsgruppen",
+      "Spezialisierungen",
+      "Freie Rezepte und Perks",
+      "Erfahrung",
+      "Beispiel"
+    ],
+    "hash": "fad1dce534bee924"
+  },
+  {
+    "id": "lernpunkte",
+    "title": "Lernpunkte",
+    "file": "lernpunkte.html",
+    "group": "Systeme",
+    "source_file": "Lernpunkte [History of Khorinis].htm",
+    "text_length": 1445,
+    "headings": [
+      "Lernpunkte"
+    ],
+    "hash": "af4390ef396b91fa"
+  },
+  {
+    "id": "schadenstypen",
+    "title": "Schadenstypen",
+    "file": "schadenstypen.html",
+    "group": "Systeme",
+    "source_file": "Schadenstypen [History of Khorinis].htm",
+    "text_length": 4221,
+    "headings": [
+      "Schadenstypen",
+      "Allgemein",
+      "Stumpf",
+      "Spitz",
+      "Stechend",
+      "Feuer",
+      "Wasser",
+      "Erde",
+      "Luft"
+    ],
+    "hash": "ec8b887e6133b5f2"
+  },
+  {
+    "id": "logs",
+    "title": "Logs",
+    "file": "logs.html",
+    "group": "Systeme",
+    "source_file": "Logs [History of Khorinis].htm",
+    "text_length": 1792,
+    "headings": [
+      "Logs",
+      "Dein persönliches Spielarchiv",
+      "Wie funktioniert das",
+      "Was enthalten die Logs",
+      "Supporter und Admins"
+    ],
+    "hash": "f28c801648b6b959"
+  },
+  {
+    "id": "staerke",
+    "title": "Stärke",
+    "file": "staerke.html",
+    "group": "Attribute",
+    "source_file": "Stärke [History of Khorinis].htm",
+    "text_length": 1800,
+    "headings": [
+      "Stärke"
+    ],
+    "hash": "2af33f2878c56c34"
+  },
+  {
+    "id": "geschick",
+    "title": "Geschicklichkeit",
+    "file": "geschicklichkeit.html",
+    "group": "Attribute",
+    "source_file": "Geschicklichkeit [History of Khorinis].htm",
+    "text_length": 2031,
+    "headings": [
+      "Geschicklichkeit"
+    ],
+    "hash": "7893311cf0a622b8"
+  },
+  {
+    "id": "vitalitaet",
+    "title": "Vitalität",
+    "file": "vitalitaet.html",
+    "group": "Attribute",
+    "source_file": "Vitalität [History of Khorinis].htm",
+    "text_length": 949,
+    "headings": [
+      "Vitalität"
+    ],
+    "hash": "dccf77b5639ac5f1"
+  },
+  {
+    "id": "mana",
+    "title": "Mana",
+    "file": "mana.html",
+    "group": "Attribute",
+    "source_file": "Mana [History of Khorinis].htm",
+    "text_length": 2016,
+    "headings": [
+      "Mana"
+    ],
+    "hash": "f3c7516c350b5592"
+  },
+  {
+    "id": "einhand",
+    "title": "Einhandwaffen",
+    "file": "einhandwaffen.html",
+    "group": "Waffen",
+    "source_file": "Einhandwaffen [History of Khorinis].htm",
+    "text_length": 367,
+    "headings": [
+      "Einhandwaffen"
+    ],
+    "hash": "0471dbbc2fa6c4f3"
+  },
+  {
+    "id": "zweihand",
+    "title": "Zweihandwaffen",
+    "file": "zweihandwaffen.html",
+    "group": "Waffen",
+    "source_file": "Zweihandwaffen [History of Khorinis].htm",
+    "text_length": 369,
+    "headings": [
+      "Zweihandwaffen"
+    ],
+    "hash": "fdddec9ffba11f6e"
+  },
+  {
+    "id": "bogen",
+    "title": "Bogen",
+    "file": "bogen.html",
+    "group": "Waffen",
+    "source_file": "Bogen [History of Khorinis].htm",
+    "text_length": 586,
+    "headings": [
+      "Bogen"
+    ],
+    "hash": "303cb1515e5c7878"
+  },
+  {
+    "id": "armbrust",
+    "title": "Armbrust",
+    "file": "armbrust.html",
+    "group": "Waffen",
+    "source_file": "Armbrust [History of Khorinis].htm",
+    "text_length": 593,
+    "headings": [
+      "Armbrust"
+    ],
+    "hash": "d8e41e90d187ccfb"
+  },
+  {
+    "id": "goblins",
+    "title": "Goblins",
+    "file": "goblins.html",
+    "group": "Lore",
+    "source_file": "Goblins [History of Khorinis].htm",
+    "text_length": 3553,
+    "headings": [
+      "Goblins",
+      "Entstehung der Goblins",
+      "Physiologie",
+      "Intellekt",
+      "Vermehrung",
+      "Hierarchiespitze",
+      "Goblins auf Khorinis"
+    ],
+    "hash": "c139b1ca3da8063b"
+  },
+  {
+    "id": "serverfinanzierung",
+    "title": "Serverfinanzierung und aktuelle Finanzübersicht",
+    "file": "serverfinanzen.html",
+    "group": "Transparenz",
+    "source_file": "Serverfinanzierung und aktuelle Finanzübersicht [History of Khorinis].htm",
+    "text_length": 2670,
+    "headings": [
+      "Serverfinanzierung und aktuelle Finanzübersicht",
+      "Allgemein",
+      "Testserver & Spielserver",
+      "Spenden",
+      "Ref Links"
+    ],
+    "hash": "e4e8045dd13e90cb"
+  },
+  {
+    "id": "team",
+    "title": "Team",
+    "file": "team.html",
+    "group": "Projekt",
+    "source_file": "Team [History of Khorinis].htm",
+    "text_length": 48,
+    "headings": [
+      "Team"
+    ],
+    "hash": "974f0ffacd1711e6"
+  },
+  {
+    "id": "credits",
+    "title": "Credits",
+    "file": "credits.html",
+    "group": "Projekt",
+    "source_file": "Credits [History of Khorinis].htm",
+    "text_length": 1967,
+    "headings": [
+      "Credits",
+      "Grafiken",
+      "Mesh",
+      "Spacer",
+      "Itemmeshes",
+      "Kampfbalancings",
+      "Externe Quellen & Sonstiges"
+    ],
+    "hash": "fb7228a8397741a6"
+  }
+]
