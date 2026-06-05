@@ -1,6 +1,0 @@
-file,mode,size,has_alpha,transparent_pixels,transparent_ratio,partial_alpha_ratio
-button-start.png,RGBA,560x140,True,8485,0.1082,0.1091
-button-installation.png,RGBA,560x140,True,3636,0.0464,0.2326
-button-wiki.png,RGBA,560x140,True,7543,0.0962,0.1136
-button-discord.png,RGBA,560x140,True,3626,0.0462,0.1695
-button-empty.png,RGBA,560x140,True,9115,0.1163,0.0686
