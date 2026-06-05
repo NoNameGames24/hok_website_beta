@@ -1,4 +1,4 @@
-# Changelog V.0.0.1.5
+# Changelog V.0.0.1.6
 
 ## Fokus dieses Schritts
 Gezielte Verfeinerung der Startseite und Vereinheitlichung der Unterseiten anhand des zuletzt genannten Feedbacks.
