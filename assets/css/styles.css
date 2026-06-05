@@ -1326,3 +1326,107 @@ body.home-v15 .feature-chip{overflow:visible !important;}
   body.home-v15 .hero-actions-v23{display:grid !important;grid-template-columns:1fr !important;justify-items:center !important;}
   body.home-v15 .hero-actions-v23 .hero-image-button{width:min(88vw,280px) !important;height:auto !important;aspect-ratio:1254 / 313 !important;}
 }
+
+
+/* ===== V.0.0.2.9 fix: keep provided icons visible while scrolling ===== */
+
+/* Remove all legacy visual treatment from icon containers. */
+body.home-v15 .mini-features .icon-badge,
+body.home-v15 .plaque-card-v6 .medallion,
+body.home-v15 .feature-chip span{
+  position:relative !important;
+  z-index:50 !important;
+  display:block !important;
+  width:96px !important;
+  height:96px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  overflow:visible !important;
+  background:none !important;
+  background-image:none !important;
+  border:0 !important;
+  outline:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  color:transparent !important;
+  opacity:1 !important;
+  filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  transform:none !important;
+}
+
+/* The actual uploaded PNG icons. Do not blur, fade or mask them. */
+body.home-v15 .mini-features .icon-badge > img,
+body.home-v15 .plaque-card-v6 .medallion > img,
+body.home-v15 .feature-chip span > img{
+  position:relative !important;
+  z-index:60 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+  mix-blend-mode:normal !important;
+  transform:none !important;
+  background:transparent !important;
+}
+
+/* Kill pseudo-elements that create the blurred round spots over/under the icons. */
+body.home-v15 .mini-features .icon-badge::before,
+body.home-v15 .mini-features .icon-badge::after,
+body.home-v15 .plaque-card-v6 .medallion::before,
+body.home-v15 .plaque-card-v6 .medallion::after,
+body.home-v15 .feature-chip span::before,
+body.home-v15 .feature-chip span::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Make sure card layers cannot sit above the icons. */
+body.home-v15 .plaque-card-v6,
+body.home-v15 .feature-chip,
+body.home-v15 .mini-features div{
+  position:relative !important;
+  overflow:visible !important;
+}
+
+body.home-v15 .plaque-card-v6::before,
+body.home-v15 .plaque-card-v6::after,
+body.home-v15 .feature-chip::before,
+body.home-v15 .feature-chip::after{
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+
+/* Give quickstart cards enough top room for the 96px medallions. */
+body.home-v15 .plaque-card-v6{
+  padding-top:24px !important;
+}
+body.home-v15 .plaque-card-v6 .medallion{
+  margin-top:0 !important;
+  margin-bottom:10px !important;
+}
+
+/* Feature strip icons a little smaller to preserve row height. */
+body.home-v15 .feature-chip span{
+  width:86px !important;
+  height:86px !important;
+  margin-bottom:10px !important;
+}
+
+body.home-v15 .mini-features .icon-badge{
+  width:90px !important;
+  height:90px !important;
+  margin-bottom:8px !important;
+}
+
+@media(max-width:980px){
+  body.home-v15 .plaque-card-v6 .medallion{width:86px !important;height:86px !important;}
+  body.home-v15 .feature-chip span{width:78px !important;height:78px !important;}
+  body.home-v15 .mini-features .icon-badge{width:78px !important;height:78px !important;}
+}
