@@ -1153,3 +1153,74 @@ body.home-v15 .btn-discord{
 body.home-v15 .btn-discord:hover{
   filter:brightness(1.12);
 }
+
+
+/* ===== V.0.0.2.3 image hero buttons only =====
+   Header und restliche Seite bleiben unverändert.
+   Buttons sind echte RGBA-PNGs mit Alpha-Kanal, einheitlich 560x140. */
+body.home-v15 .hero-actions-v23{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
+
+body.home-v15 .hero-actions-v23 .hero-image-button{
+  display:block;
+  width:206px;
+  height:52px;
+  padding:0;
+  margin:0;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  line-height:0;
+  transition:transform .16s ease, filter .16s ease;
+}
+
+body.home-v15 .hero-actions-v23 .hero-image-button img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:fill;
+  background:transparent!important;
+  border:0;
+  box-shadow:none;
+  pointer-events:none;
+}
+
+body.home-v15 .hero-actions-v23 .hero-image-button:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.08);
+}
+
+body.home-v15 .hero-actions-v23 .hero-image-button:focus-visible{
+  outline:2px solid rgba(242,214,143,.92);
+  outline-offset:2px;
+}
+
+@media(max-width:980px){
+  body.home-v15 .hero-actions-v23{
+    gap:10px;
+    margin-top:22px;
+  }
+  body.home-v15 .hero-actions-v23 .hero-image-button{
+    width:184px;
+    height:46px;
+  }
+}
+
+@media(max-width:520px){
+  body.home-v15 .hero-actions-v23{
+    display:grid;
+    grid-template-columns:1fr;
+    justify-items:center;
+  }
+  body.home-v15 .hero-actions-v23 .hero-image-button{
+    width:min(78vw,260px);
+    height:auto;
+    aspect-ratio:4/1;
+  }
+}
