@@ -1143,48 +1143,13 @@ body.site-v15 .navlinks a.mobile-join{
 }
 
 
-/* ===== V.0.0.2.1 homepage asset integration ===== */
-body.home-v15 .mini-features-v21 .mini-feature-item{padding:0 10px;text-align:center;border-left:1px solid rgba(110,75,35,.22)}
-body.home-v15 .mini-features-v21 .mini-feature-item:first-child{border-left:0}
-body.home-v15 .mini-features-v21 img{display:block;width:74px;height:74px;object-fit:contain;margin:0 auto 10px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.18))}
-body.home-v15 .mini-features-v21 strong{display:block;font-family:var(--title-font);font-size:.88rem;text-transform:uppercase;color:#4f2d13}
-body.home-v15 .mini-features-v21 small{display:block;color:#6a5740;line-height:1.35}
-
-body.home-v15 .snow-band-v6{position:relative}
-body.home-v15 .snow-band-v6:after{content:"";position:absolute;left:50%;top:18px;transform:translateX(-50%);width:min(1180px,92vw);height:40px;background:url('../images/ui-footer-ornament-v11.png') center top/100% auto no-repeat;opacity:.18;pointer-events:none}
-
-body.home-v15 .quick-grid-v21{gap:18px}
-body.home-v15 .plaque-card-v21{position:relative;overflow:visible;padding-top:18px!important}
-body.home-v15 .plaque-card-v21 .medallion-image{width:auto!important;height:auto!important;background:none!important;border:0!important;box-shadow:none!important;margin:0 auto 8px!important}
-body.home-v15 .plaque-card-v21 .medallion-image img{display:block;width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(0,0,0,.18))}
-body.home-v15 .plaque-card-v21 h3{margin-top:2px}
-
-body.home-v15 .systems-section-v6{position:relative;background:linear-gradient(180deg,#ebd8b1,#efdcb9 16%,#e8d3ab 100%)}
-body.home-v15 .systems-section-v6:before{content:"";position:absolute;left:50%;top:26px;transform:translateX(-50%);width:min(1220px,94vw);height:42px;background:url('../images/ui-footer-ornament-v11.png') center center/100% auto no-repeat;opacity:.16;pointer-events:none}
-body.home-v15 .systems-section-v6 .section-title{margin-bottom:30px}
-body.home-v15 .features-row-v21{padding:26px 18px 18px!important;min-height:216px!important;background:url('../images/ui-features-strip-v11.png') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important;gap:0!important;display:grid;grid-template-columns:repeat(5,1fr)}
-body.home-v15 .feature-chip-v21{background:transparent!important;border:0!important;box-shadow:none!important;min-height:188px!important;padding:18px 14px 12px!important;border-right:1px solid rgba(114,76,35,.16)!important;overflow:visible!important;position:relative}
-body.home-v15 .feature-chip-v21:last-child{border-right:0!important}
-body.home-v15 .feature-chip-v21:before{display:none!important}
-body.home-v15 .feature-chip-v21 .feature-icon{display:block;width:auto!important;height:auto!important;background:none!important;border:0!important;box-shadow:none!important;margin:0 auto 6px!important}
-body.home-v15 .feature-chip-v21 .feature-icon img{display:block;width:82px;height:82px;object-fit:contain;margin:0 auto;filter:drop-shadow(0 10px 12px rgba(0,0,0,.16))}
-body.home-v15 .feature-chip-v21 strong{display:block;font-size:.94rem;margin-top:4px;margin-bottom:6px}
-body.home-v15 .feature-chip-v21 em{display:block;font-style:normal;font-size:.87rem;line-height:1.35;color:#5a4632;max-width:180px;margin:0 auto}
-
-body.home-v15 .news-section-v6{position:relative}
-body.home-v15 .news-section-v6:before{content:"";position:absolute;left:50%;top:12px;transform:translateX(-50%);width:min(760px,72vw);height:24px;background:url('../images/ui-footer-ornament-v11.png') center top/100% auto no-repeat;opacity:.12;pointer-events:none}
-
-@media(max-width:1220px){
-  body.home-v15 .features-row-v21{grid-template-columns:repeat(3,1fr)!important;background:linear-gradient(180deg,#f6e7c8,#dfc394)!important;border:1px solid rgba(113,74,34,.48)!important;box-shadow:0 14px 26px rgba(62,38,15,.15)!important;padding:14px 10px!important}
-  body.home-v15 .feature-chip-v21{border-right:0!important;border-bottom:1px solid rgba(113,74,34,.18)!important;min-height:auto!important}
-  body.home-v15 .feature-chip-v21:nth-last-child(-n+2){border-bottom:0!important}
+/* ===== V.0.0.2.2 Discord CTA + asset rollback baseline =====
+   Basis: V.0.0.2.0. Header bleibt unverändert. */
+body.home-v15 .btn-discord{
+  background:linear-gradient(180deg,#5865f2,#24306f);
+  border-color:rgba(178,190,255,.72);
+  color:#f4f6ff;
 }
-@media(max-width:980px){
-  body.home-v15 .quick-grid-v21,body.home-v15 .features-row-v21{grid-template-columns:1fr!important}
-  body.home-v15 .mini-features-v21{grid-template-columns:1fr!important}
-  body.home-v15 .mini-features-v21 .mini-feature-item{border-left:0;border-top:1px solid rgba(110,75,35,.22);padding-top:12px}
-  body.home-v15 .mini-features-v21 .mini-feature-item:first-child{border-top:0}
-  body.home-v15 .feature-chip-v21{border-bottom:1px solid rgba(113,74,34,.18)!important}
-  body.home-v15 .feature-chip-v21:last-child{border-bottom:0!important}
-  body.home-v15 .features-row-v21{background:linear-gradient(180deg,#f7ebcc,#dec791)!important;border:1px solid rgba(114,76,35,.28)!important;box-shadow:var(--soft-shadow)!important}
+body.home-v15 .btn-discord:hover{
+  filter:brightness(1.12);
 }
