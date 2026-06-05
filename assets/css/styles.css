@@ -1578,3 +1578,87 @@ body.site-v15 .sub-hero h1{
   body.site-v15 .sub-hero__inner{padding:130px 0 56px !important;}
   .gallery-artworks-v31 img{height:180px;}
 }
+
+
+/* ===== V.0.0.3.2 fixes: divider and subpage hero images ===== */
+
+/* Divider: 80px schmaler als V.0.0.3.1, 15px niedriger, 5px nach oben.
+   Background wird gestreckt, damit vom Asset nichts abgeschnitten wird. */
+body.home-v15 .home-hero{
+  overflow:visible !important;
+}
+
+body.home-v15 .home-hero:after{
+  width:calc(100vw - 40px) !important;
+  height:98px !important;
+  bottom:-59px !important;
+  background-size:100% 100% !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  transform:translateX(-50%) !important;
+  overflow:visible !important;
+}
+
+/* Die Unterseiten sollen die gelieferten Hero-Bilder zeigen, nicht den grauen/alten Balken. */
+body.site-v15 .sub-hero{
+  min-height:420px !important;
+  background-image:var(--hero-image) !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+  background-color:#110a06 !important;
+  opacity:1 !important;
+  filter:none !important;
+}
+
+/* Grauschleier massiv reduziert. */
+body.site-v15 .sub-hero:before{
+  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.08) 50%,rgba(0,0,0,.42) 100%) !important;
+  opacity:1 !important;
+}
+
+body.site-v15 .sub-hero:after{
+  height:72px !important;
+  background:linear-gradient(180deg,transparent,rgba(14,8,4,.74)) !important;
+}
+
+body.site-v15 .sub-hero__inner{
+  padding:170px 0 72px !important;
+}
+
+body.site-v15 .sub-hero h1{
+  color:#e8c262 !important;
+  text-shadow:0 4px 7px #000,0 0 18px rgba(230,170,64,.24) !important;
+}
+
+/* Direkte Seiten-Zuweisung als Fallback, falls Inline-Style gecached/überschrieben wird. */
+body[data-page="setting"] .sub-hero{background-image:url('../images/hero-page-setting-v32.webp') !important;}
+body[data-page="installation"] .sub-hero{background-image:url('../images/hero-page-installation-v32.webp') !important;}
+body[data-page="systeme"] .sub-hero{background-image:url('../images/hero-page-systeme-v32.webp') !important;}
+body[data-page="regeln"] .sub-hero{background-image:url('../images/hero-page-regeln-v32.webp') !important;}
+body[data-page="rpleitfaden"] .sub-hero{background-image:url('../images/hero-page-rpleitfaden-v32.webp') !important;}
+body[data-page="wiki"] .sub-hero{background-image:url('../images/hero-page-wiki-v32.webp') !important;}
+body[data-page="galerie"] .sub-hero{background-image:url('../images/hero-page-galerie-v32.webp') !important;}
+body[data-page="status"] .sub-hero{background-image:url('../images/hero-page-status-v32.webp') !important;}
+
+@media(max-width:980px){
+  body.home-v15 .home-hero:after{
+    width:calc(100vw - 60px) !important;
+    height:76px !important;
+    bottom:-51px !important;
+    background-size:100% 100% !important;
+  }
+  body.site-v15 .sub-hero{min-height:360px !important;}
+  body.site-v15 .sub-hero__inner{padding:138px 0 60px !important;}
+}
+
+@media(max-width:600px){
+  body.home-v15 .home-hero:after{
+    width:calc(100vw - 40px) !important;
+    height:54px !important;
+    bottom:-43px !important;
+    background-size:100% 100% !important;
+  }
+  body.site-v15 .sub-hero{min-height:310px !important;}
+  body.site-v15 .sub-hero__inner{padding:118px 0 50px !important;}
+}
