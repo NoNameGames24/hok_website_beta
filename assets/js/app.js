@@ -1,4 +1,4 @@
-// Author: NoNameGames - Lou
+// NoNameGames - Lou
 (function(){
   const year = document.querySelector('[data-year]');
   if(year) year.textContent = new Date().getFullYear();
@@ -43,8 +43,8 @@
     });
   }
 
-  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !document.querySelector('.snowflake')){
-    const count = Math.min(22, Math.floor(window.innerWidth/72));
+  if(window.innerWidth > 700 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !document.querySelector('.snowflake')){
+    const count = Math.min(18, Math.floor(window.innerWidth/90));
     for(let i=0;i<count;i++){
       const f=document.createElement('span');
       f.className='snowflake';
