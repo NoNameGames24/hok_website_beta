@@ -220,5 +220,35 @@
     "title": "Projektlog",
     "file": "status.html",
     "group": "Projekt"
+  },
+  {
+    "title": "Aktuelles",
+    "file": "aktuelles.html",
+    "source": "local"
+  },
+  {
+    "title": "Das neue Söldner-System",
+    "file": "aktuelles/soeldner-system.html",
+    "source": "local"
+  },
+  {
+    "title": "Ratsentscheidungen",
+    "file": "aktuelles/ratsentscheidungen.html",
+    "source": "local"
+  },
+  {
+    "title": "Charaktergeschichten",
+    "file": "aktuelles/charaktergeschichten.html",
+    "source": "local"
+  },
+  {
+    "title": "Neues aus Nordmar",
+    "file": "aktuelles/neues-aus-nordmar.html",
+    "source": "local"
+  },
+  {
+    "title": "Community-Event",
+    "file": "aktuelles/community-event.html",
+    "source": "local"
   }
 ]
