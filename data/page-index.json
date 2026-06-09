@@ -216,12 +216,6 @@
     "group": "Index"
   },
   {
-    "id": "status",
-    "title": "Projektlog",
-    "file": "status.html",
-    "group": "Projekt"
-  },
-  {
     "title": "Aktuelles",
     "file": "aktuelles.html",
     "source": "local"

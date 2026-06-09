@@ -1,0 +1,9 @@
+{
+  "version": "V.0.0.3.8-github-pages",
+  "mode": "static-only",
+  "admin_login_present": false,
+  "backend_present": false,
+  "database_present": false,
+  "placeholder_password_hits": [],
+  "suspicious_filename_hits": []
+}

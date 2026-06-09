@@ -28,3 +28,12 @@ Fehlende interne Links: **0**
 Die Unterseiten verwenden neue textlose Banner im Gothic-2-nahen Spielstil.
 
 Interne fehlende Links: **0**
+
+## Administration
+
+Der sichere serverseitige Adminbereich liegt unter `server/`.
+
+
+## V.0.0.3.7
+
+Entwickler-Login im Footer, E-Mail-Registrierung, Adminfreigabe, Dashboard und E-Mail-bestätigte Änderung des Freigabepassworts. Fehlende interne Links: 0.
