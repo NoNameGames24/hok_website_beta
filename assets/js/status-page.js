@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 (function(){
   const data = window.HOK_PROJECT_STATUS || [];
   const tbody = document.querySelector('[data-status-table]');

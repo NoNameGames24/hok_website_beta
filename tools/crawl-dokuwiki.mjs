@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 #!/usr/bin/env node
 /**
  * DokuWiki Importer für History of Khorinis.

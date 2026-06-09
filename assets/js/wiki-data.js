@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 window.HOK_WIKI_PAGES = [
   {
     "id": "start",

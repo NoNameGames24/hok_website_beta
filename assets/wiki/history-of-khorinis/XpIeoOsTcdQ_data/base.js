@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 var _yt_player={};(function(g){var window=this;/*
 
  Copyright The Closure Library Authors.

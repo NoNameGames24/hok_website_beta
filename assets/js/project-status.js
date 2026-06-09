@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 window.HOK_PROJECT_STATUS = [
   {
     "area": "Identifizierbare Seitendateien",

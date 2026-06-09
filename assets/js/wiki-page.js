@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 (function(){
   const pages = window.HOK_WIKI_PAGES || [];
   const nav = document.querySelector('[data-wiki-nav]');
