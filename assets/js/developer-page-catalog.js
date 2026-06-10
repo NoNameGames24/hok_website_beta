@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 window.HoKEditablePages = [
   {
     "file": "aktuelles.html",

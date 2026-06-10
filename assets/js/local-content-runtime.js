@@ -1,4 +1,4 @@
-// NoNameGames - Lou
+// Author: NoNameGames - Lou
 (() => {
   'use strict';
 
@@ -11,6 +11,35 @@
   const DEFAULT_NEWS = [{"slug": "soeldner-system", "date": "12. Mai 2024", "title": "Das neue Söldner-System", "image": "assets/images/ingame-trio.webp", "teaser": "Neue Wege für Söldner, Wachen und kampforientierte Charaktere.", "body": ["Das neue Söldner-System bündelt kampforientierte Rollen, Ausrüstung und Verantwortlichkeiten klarer als bisher.", "Der Fokus liegt auf nachvollziehbaren Wegen vom einfachen Kämpfer bis zu spezialisierten Aufgaben im Spielbetrieb.", "Details, Balancing und konkrete Abläufe können hier später als aktueller Beitrag gepflegt werden."], "id": "soeldner-system", "builtin": true, "deleted": false, "banner": "assets/images/ingame-trio.webp"}, {"slug": "ratsentscheidungen", "date": "03. Mai 2024", "title": "Ratsentscheidungen", "image": "assets/images/painting-07.webp", "teaser": "Zusammenfassung aktueller Entscheidungen und Änderungen.", "body": ["Hier werden wichtige Ratsentscheidungen, Regelanpassungen und organisatorische Änderungen gesammelt.", "Der Beitrag dient als nachvollziehbares Protokoll für Spieler, Team und Community.", "Neue Beschlüsse können hier ergänzt und anschließend auf der Startseite verlinkt werden."], "id": "ratsentscheidungen", "builtin": true, "deleted": false, "banner": "assets/images/painting-07.webp"}, {"slug": "charaktergeschichten", "date": "27. April 2024", "title": "Charaktergeschichten", "image": "assets/images/painting-06.webp", "teaser": "Ein Ort für Geschichten, Entwicklungen und Chroniken.", "body": ["Charaktergeschichten geben der Spielwelt Tiefe und machen Entscheidungen dauerhaft nachvollziehbar.", "Dieser Bereich kann für Chroniken, Berichte, Zusammenfassungen und besondere Ereignisse genutzt werden.", "Jeder Beitrag erhält eine eigene Seite und kann unten auf der Startseite erscheinen."], "id": "charaktergeschichten", "builtin": true, "deleted": false, "banner": "assets/images/painting-06.webp"}, {"slug": "neues-aus-nordmar", "date": "18. April 2024", "title": "Neues aus Nordmar", "image": "assets/images/hero-nordmar-night.webp", "teaser": "Meldungen aus dem Norden, von Clans und rauen Grenzlanden.", "body": ["Nordmar bleibt ein zentraler Schauplatz für harte Konflikte, Kälte, Ehre und Überlebenskampf.", "Hier können regionale Meldungen, Fraktionsereignisse und neue Entwicklungen veröffentlicht werden.", "Der Beitrag ist als Vorlage für spätere Inhaltsaktualisierungen vorbereitet."], "id": "neues-aus-nordmar", "builtin": true, "deleted": false, "banner": "assets/images/hero-nordmar-night.webp"}, {"slug": "community-event", "date": "10. April 2024", "title": "Community-Event", "image": "assets/images/painting-08.webp", "teaser": "Termine, Aktionen und gemeinsame Community-Inhalte.", "body": ["Community-Events bündeln gemeinsame Aktionen außerhalb und innerhalb des Rollenspiels.", "Dieser Beitrag kann für Ankündigungen, Rückblicke und wichtige Hinweise zu Veranstaltungen verwendet werden.", "Weitere Events lassen sich durch neue Einträge in der Aktuelles-Struktur ergänzen."], "id": "community-event", "builtin": true, "deleted": false, "banner": "assets/images/painting-08.webp"}];
   const DEFAULT_GALLERY = [{"id": "artwork-01", "title": "Khorinis Siedlung", "description": "", "image": "assets/images/painting-02.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-02", "title": "Lagerfeuer", "description": "", "image": "assets/images/painting-03.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-03", "title": "Wildnis", "description": "", "image": "assets/images/painting-04.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-04", "title": "Nordmar", "description": "", "image": "assets/images/painting-05.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-05", "title": "Chroniken", "description": "", "image": "assets/images/painting-06.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-06", "title": "Ratsraum", "description": "", "image": "assets/images/painting-07.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-07", "title": "Gebirge", "description": "", "image": "assets/images/painting-08.webp", "category": "artworks", "builtin": true, "deleted": false}, {"id": "artwork-08", "title": "Seefahrt", "description": "", "image": "assets/images/painting-sea-v9.webp", "category": "artworks", "builtin": true, "deleted": false}];
   const DEFAULT_GALLERY_CATEGORIES = [{"id": "artworks", "name": "Artworks", "builtin": true}, {"id": "screenshots", "name": "Screenshots", "builtin": true}, {"id": "neues", "name": "Neues", "builtin": true}];
+
+  DEFAULT_NEWS.forEach(item => {
+    item.authorId = item.authorId || 'hok-team';
+    item.authorName = item.authorName || 'History of Khorinis Team';
+    item.authorUsername = item.authorUsername || '';
+  });
+  DEFAULT_GALLERY.forEach(item => {
+    item.authorId = item.authorId || 'hok-team';
+    item.authorName = item.authorName || 'History of Khorinis Team';
+    item.authorUsername = item.authorUsername || '';
+  });
+
+  function normalizeNewsItems(items) {
+    return items.map(item => ({
+      ...item,
+      authorId: item.authorId || (item.builtin ? 'hok-team' : 'system-admin'),
+      authorName: item.authorName || (item.builtin ? 'History of Khorinis Team' : 'Admin'),
+      authorUsername: item.authorUsername || ''
+    }));
+  }
+
+  function normalizeGalleryItems(items) {
+    return items.map(item => ({
+      ...item,
+      authorId: item.authorId || (item.builtin ? 'hok-team' : 'system-admin'),
+      authorName: item.authorName || (item.builtin ? 'History of Khorinis Team' : 'Admin'),
+      authorUsername: item.authorUsername || ''
+    }));
+  }
 
   const clone = value => JSON.parse(JSON.stringify(value));
   const read = (key, fallback = null) => {
@@ -33,9 +62,9 @@
 
   function getNews(seed = false) {
     const saved = read(NEWS_KEY);
-    if (Array.isArray(saved)) return saved;
+    if (Array.isArray(saved)) return normalizeNewsItems(saved);
     if (seed) {
-      const initial = clone(DEFAULT_NEWS);
+      const initial = normalizeNewsItems(clone(DEFAULT_NEWS));
       write(NEWS_KEY, initial);
       return initial;
     }
@@ -45,9 +74,9 @@
 
   function getGallery(seed = false) {
     const saved = read(GALLERY_KEY);
-    if (Array.isArray(saved)) return saved;
+    if (Array.isArray(saved)) return normalizeGalleryItems(saved);
     if (seed) {
-      const initial = clone(DEFAULT_GALLERY);
+      const initial = normalizeGalleryItems(clone(DEFAULT_GALLERY));
       write(GALLERY_KEY, initial);
       return initial;
     }
@@ -452,6 +481,9 @@
     const date = document.createElement('p');
     date.className = 'news-date';
     date.textContent = formatDate(item.date);
+    const author = document.createElement('p');
+    author.className = 'news-author';
+    author.textContent = `Erstellt von ${item.authorName || 'Nicht zugeordnet'}`;
     const h2 = document.createElement('h2');
     h2.textContent = item.title;
     const img = document.createElement('img');
@@ -461,7 +493,7 @@
     const lead = document.createElement('p');
     lead.className = 'lead-v33';
     lead.textContent = item.teaser || '';
-    box.append(date, h2, img, lead);
+    box.append(date, author, h2, img, lead);
     const body = Array.isArray(item.body) ? item.body : String(item.body || '').split(/\n+/);
     body.filter(Boolean).forEach(text => {
       const p = document.createElement('p');

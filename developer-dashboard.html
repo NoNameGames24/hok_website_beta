@@ -2,9 +2,10 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta name="author" content="NoNameGames - Lou">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#170b06">
-  <title>Entwickler-Dashboard · History of Khorinis</title>
+  <title>Team-Dashboard · History of Khorinis</title>
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/developer-local.css">
@@ -13,37 +14,51 @@
   <header class="developer-topbar">
     <a href="index.html" class="developer-brand">
       <img src="assets/images/hok-logo-gold-transparent.png" alt="">
-      <span>Entwickler-Dashboard</span>
+      <span>Team-Dashboard</span>
     </a>
     <div class="developer-topbar-actions">
-      <span class="developer-mode-badge">Lokaler Testmodus</span>
+      <span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span>
       <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
     </div>
   </header>
 
   <main class="developer-dashboard">
     <section class="developer-dashboard-intro">
-      <h1>Willkommen, Admin</h1>
-      <p>Wähle einen Bereich zur lokalen Prüfung. Änderungen werden nur im Browser gespeichert und nicht auf der öffentlichen Website veröffentlicht.</p>
+      <p class="developer-mode-badge">Lokaler Testmodus</p>
+      <h1>Willkommen, <span data-current-user-name></span></h1>
+      <p>Es werden ausschließlich die Bereiche angezeigt, für die die aktuell vergebene Rolle berechtigt ist.</p>
+      <p id="developer-access-message" class="developer-form-error" hidden></p>
     </section>
 
     <section class="developer-card-grid">
-      <a class="developer-module-card" href="developer-aktuelles.html">
+      <a class="developer-module-card" href="developer-aktuelles.html" data-permission="news:create">
         <img class="developer-module-icon" src="assets/images/aktuelles_verwalten.png" alt="" loading="lazy" decoding="async">
         <h2>Aktuelles verwalten</h2>
-        <p>Neue Beiträge anlegen, bestehende Testbeiträge bearbeiten oder löschen.</p>
+        <p>Neue Beiträge erstellen. Fremde Beiträge können nur mit erweiterten Rechten bearbeitet werden.</p>
       </a>
 
-      <a class="developer-module-card" href="developer-galerie.html">
+      <a class="developer-module-card" href="developer-galerie.html" data-permission="gallery:create">
         <img class="developer-module-icon" src="assets/images/galerie_verwalten.png" alt="" loading="lazy" decoding="async">
         <h2>Galerie verwalten</h2>
-        <p>Bilder auswählen, Vorschaudaten prüfen und lokale Galerieeinträge testen.</p>
+        <p>Bilder hochladen und eigene Galerieeinträge verwalten.</p>
       </a>
 
-      <a class="developer-module-card" href="developer-seiten.html">
+      <a class="developer-module-card" href="developer-seiten.html" data-permission="pages:edit">
         <img class="developer-module-icon" src="assets/images/seitendaten_bearbeiten.png" alt="" loading="lazy" decoding="async">
         <h2>Seitendaten bearbeiten</h2>
-        <p>Beliebige öffentliche Seite auswählen und Inhalte, Banner und Seitendaten detailliert bearbeiten.</p>
+        <p>Öffentliche Seiten, Inhalte, Banner und Seitendaten bearbeiten.</p>
+      </a>
+
+      <a class="developer-module-card" href="developer-benutzer.html" data-permission="users:view">
+        <img class="developer-module-icon" src="assets/images/icon-community.png" alt="" loading="lazy" decoding="async">
+        <h2>Benutzer verwalten</h2>
+        <p>Registrierungen prüfen. Annahme und Rollenvergabe sind ausschließlich Admins vorbehalten.</p>
+      </a>
+
+      <a class="developer-module-card" href="developer-profil.html">
+        <img class="developer-module-icon" src="assets/images/icon-community.png" alt="" loading="lazy" decoding="async">
+        <h2>Mein Profil</h2>
+        <p>Die persönlichen Daten und das Passwort des aktuell angemeldeten Accounts bearbeiten.</p>
       </a>
 
       <a class="developer-module-card" href="index.html">
@@ -53,6 +68,7 @@
       </a>
     </section>
   </main>
+  <script src="assets/js/developer-auth.js"></script>
   <script src="assets/js/developer-local-guard.js"></script>
 </body>
 </html>

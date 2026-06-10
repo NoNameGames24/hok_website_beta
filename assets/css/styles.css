@@ -1,3 +1,4 @@
+/* Author: NoNameGames - Lou */
 /* NoNameGames - Lou */
 /* Active stylesheet. Older layout rules remain isolated in compatibility.css. */
 @import url("compatibility.css");
@@ -1019,4 +1020,467 @@ body.gallery-lightbox-open{overflow:hidden}
   .mini-features > a.mini-feature-link .icon-badge{grid-row:1 / 3}
   .mini-features > a.mini-feature-link strong,
   .mini-features > a.mini-feature-link small{text-align:left}
+}
+
+/* Author display for dynamically created news entries */
+.news-author{
+  margin:.2rem 0 1rem;
+  color:#8a7355;
+  font-size:.82rem;
+  font-style:italic;
+}
+
+/* =========================================================
+   Mobile stabilization and homepage icon cleanup
+   Author: NoNameGames - Lou
+   ========================================================= */
+
+/* Decorative particles must never cover homepage controls or icons. */
+.snowflake{
+  display:none !important;
+}
+
+/* Keep every homepage icon on its own transparent layer. */
+body.home-v15 .mini-feature-link,
+body.home-v15 .plaque-card-v6,
+body.home-v15 .feature-chip{
+  isolation:isolate;
+}
+
+body.home-v15 .mini-feature-link .icon-badge,
+body.home-v15 .plaque-card-v6 .medallion,
+body.home-v15 .feature-chip > span{
+  position:relative !important;
+  z-index:2 !important;
+  display:grid !important;
+  place-items:center !important;
+  overflow:visible !important;
+  background:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+
+body.home-v15 .mini-feature-link .icon-badge::before,
+body.home-v15 .mini-feature-link .icon-badge::after,
+body.home-v15 .plaque-card-v6 .medallion::before,
+body.home-v15 .plaque-card-v6 .medallion::after,
+body.home-v15 .feature-chip > span::before,
+body.home-v15 .feature-chip > span::after{
+  content:none !important;
+  display:none !important;
+}
+
+body.home-v15 .mini-feature-link .icon-badge > img,
+body.home-v15 .plaque-card-v6 .medallion > img,
+body.home-v15 .feature-chip > span > img{
+  position:relative !important;
+  z-index:3 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  background:transparent !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  mix-blend-mode:normal !important;
+}
+
+@media (hover:none), (pointer:coarse){
+  .mini-features > a.mini-feature-link:hover,
+  .mini-features > a.mini-feature-link:focus-visible{
+    transform:none !important;
+    filter:none !important;
+  }
+}
+
+@media(max-width:700px){
+  html{
+    scroll-padding-top:68px;
+  }
+
+  body{
+    font-size:17px;
+  }
+
+  .container{
+    width:calc(100% - 22px) !important;
+  }
+
+  .section-title,
+  .section-title h2,
+  .section-plaque,
+  .section-plaque span,
+  .parchment-panel h2,
+  .content-card h1,
+  .content-card h2,
+  .content-card h3,
+  .wiki-source-content h1,
+  .wiki-source-content h2,
+  .wiki-source-content h3{
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  body.home-v15 .mini-features{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:0 !important;
+  }
+
+  body.home-v15 .mini-features > a.mini-feature-link{
+    display:grid !important;
+    grid-template-columns:72px minmax(0,1fr) !important;
+    grid-template-rows:auto auto !important;
+    column-gap:13px !important;
+    align-items:center !important;
+    min-height:96px !important;
+    padding:12px 0 !important;
+    border:0 !important;
+    border-top:1px solid rgba(84,49,22,.22) !important;
+    text-align:left !important;
+  }
+
+  body.home-v15 .mini-features > a.mini-feature-link:first-child{
+    border-top:0 !important;
+  }
+
+  body.home-v15 .mini-feature-link .icon-badge{
+    grid-row:1 / 3 !important;
+    width:68px !important;
+    height:68px !important;
+    margin:0 !important;
+  }
+
+  body.home-v15 .mini-feature-link strong,
+  body.home-v15 .mini-feature-link small{
+    min-width:0 !important;
+    text-align:left !important;
+  }
+
+  body.home-v15 .mini-feature-link strong{
+    align-self:end !important;
+    font-size:.92rem !important;
+  }
+
+  body.home-v15 .mini-feature-link small{
+    align-self:start !important;
+    font-size:.9rem !important;
+    line-height:1.35 !important;
+  }
+
+  body.home-v15 .plaque-card-v6 .medallion{
+    width:82px !important;
+    height:82px !important;
+  }
+
+  body.home-v15 .feature-chip{
+    grid-template-columns:70px minmax(0,1fr) !important;
+    column-gap:12px !important;
+  }
+
+  body.home-v15 .feature-chip > span{
+    width:64px !important;
+    height:64px !important;
+    margin:0 !important;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .split,
+  .wiki-layout,
+  .wiki-source-layout,
+  .gallery,
+  .gallery-full{
+    grid-template-columns:1fr !important;
+  }
+
+  .wiki-sidebar,
+  .wiki-source-aside{
+    position:static !important;
+    top:auto !important;
+  }
+
+  .panel,
+  .card,
+  .content-card,
+  .wiki-page,
+  .wiki-source-aside{
+    min-width:0 !important;
+    padding:20px 16px !important;
+  }
+
+  .step{
+    grid-template-columns:44px minmax(0,1fr) !important;
+    gap:12px !important;
+    padding:15px !important;
+  }
+
+  .step::before{
+    width:40px !important;
+    height:40px !important;
+  }
+
+  .callout-row,
+  .status-line{
+    align-items:stretch !important;
+    flex-direction:column !important;
+  }
+
+  .callout-row > *,
+  .status-line > *{
+    width:100% !important;
+  }
+
+  .gallery-lightbox{
+    grid-template-columns:42px minmax(0,1fr) 42px !important;
+    gap:4px !important;
+    padding:58px 5px 10px !important;
+  }
+
+  .gallery-lightbox-figure{
+    width:100% !important;
+    max-height:calc(100dvh - 70px) !important;
+    padding:6px !important;
+  }
+
+  .gallery-lightbox-image{
+    max-height:calc(100dvh - 205px) !important;
+  }
+
+  .gallery-lightbox-nav{
+    min-width:42px !important;
+    height:58px !important;
+    padding:0 !important;
+    font-size:2rem !important;
+  }
+
+  .gallery-lightbox-figure figcaption{
+    padding:9px 5px 3px !important;
+    font-size:.9rem !important;
+  }
+
+  .footer-links a,
+  .small-btn,
+  .btn{
+    min-height:44px !important;
+  }
+}
+
+@media(max-width:430px){
+  .nav-shell{
+    padding-inline:10px !important;
+  }
+
+  body.home-v15 .home-hero{
+    padding-top:14px !important;
+  }
+
+  body.home-v15 .hero-subtitle{
+    width:calc(100vw - 26px) !important;
+  }
+
+  body.site-v15 .sub-hero{
+    min-height:285px !important;
+  }
+
+  body.site-v15 .sub-hero__inner{
+    padding:112px 0 38px !important;
+  }
+
+  body.site-v15 .sub-hero h1{
+    font-size:clamp(1.72rem,9vw,2.45rem) !important;
+  }
+
+  .gallery-lightbox{
+    grid-template-columns:38px minmax(0,1fr) 38px !important;
+  }
+
+  .gallery-lightbox-nav{
+    min-width:38px !important;
+    width:38px !important;
+  }
+}
+
+/* Additional responsive width guards. */
+.grid > *,
+.content-card,
+.wiki-index-card{
+  min-width:0 !important;
+}
+
+.content-card p,
+.content-card li,
+.wiki-index-card p,
+.wiki-index-card li,
+.wiki-source-content p,
+.wiki-source-content li{
+  overflow-wrap:anywhere;
+}
+
+@media(max-width:980px){
+  .grid-3,
+  .wiki-index-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:700px){
+  .grid-3,
+  .wiki-index-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* Final compact footer layout. */
+body.site-v15 .footer{
+  padding:20px 0 12px !important;
+}
+
+body.site-v15 .footer-grid,
+body.site-v15 .footer-grid-v14,
+body.site-v15 .footer-grid-v12{
+  grid-template-columns:minmax(270px,1.35fr) repeat(3,minmax(145px,.72fr)) !important;
+  gap:16px 30px !important;
+  align-items:start !important;
+  padding-top:0 !important;
+}
+
+body.site-v15 .footer-brand{
+  gap:10px !important;
+  align-items:center !important;
+}
+
+body.site-v15 .footer-brand img{
+  width:58px !important;
+  height:58px !important;
+  flex:0 0 58px !important;
+}
+
+body.site-v15 .footer-brand strong{
+  display:block !important;
+  font-size:1rem !important;
+  line-height:1.25 !important;
+}
+
+body.site-v15 .footer-brand p{
+  max-width:300px !important;
+  margin:.25rem 0 0 !important;
+  font-size:.92rem !important;
+  line-height:1.28 !important;
+}
+
+body.site-v15 .footer-links{
+  gap:3px !important;
+}
+
+body.site-v15 .footer-links strong{
+  margin-bottom:3px !important;
+  font-size:.96rem !important;
+  line-height:1.2 !important;
+}
+
+body.site-v15 .footer-links a{
+  min-height:0 !important;
+  padding:2px 0 !important;
+  font-size:.94rem !important;
+  line-height:1.22 !important;
+}
+
+body.site-v15 .footer-links .developer-login-link{
+  min-height:36px !important;
+  margin-top:7px !important;
+  padding:0 12px !important;
+  width:max-content !important;
+}
+
+body.site-v15 .footer-bottom{
+  margin-top:14px !important;
+  padding-top:10px !important;
+  padding-bottom:0 !important;
+  font-size:.82rem !important;
+  line-height:1.25 !important;
+}
+
+@media(max-width:980px){
+  body.site-v15 .footer-grid,
+  body.site-v15 .footer-grid-v14,
+  body.site-v15 .footer-grid-v12{
+    grid-template-columns:minmax(250px,1.25fr) repeat(2,minmax(145px,.75fr)) !important;
+    gap:18px 24px !important;
+  }
+
+  body.site-v15 .footer-links:last-child{
+    grid-column:2 / 4 !important;
+    grid-template-columns:repeat(4,minmax(0,max-content)) !important;
+    column-gap:18px !important;
+    align-items:center !important;
+  }
+
+  body.site-v15 .footer-links:last-child strong{
+    grid-column:1 / -1 !important;
+  }
+}
+
+@media(max-width:700px){
+  body.site-v15 .footer{
+    padding:18px 0 10px !important;
+  }
+
+  body.site-v15 .footer-grid,
+  body.site-v15 .footer-grid-v14,
+  body.site-v15 .footer-grid-v12{
+    grid-template-columns:1fr 1fr !important;
+    gap:16px 20px !important;
+  }
+
+  body.site-v15 .footer-brand{
+    grid-column:1 / -1 !important;
+  }
+
+  body.site-v15 .footer-links:last-child{
+    grid-column:1 / -1 !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    column-gap:14px !important;
+  }
+
+  body.site-v15 .footer-links a{
+    min-height:36px !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+}
+
+@media(max-width:430px){
+  body.site-v15 .footer-grid,
+  body.site-v15 .footer-grid-v14,
+  body.site-v15 .footer-grid-v12{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  body.site-v15 .footer-brand,
+  body.site-v15 .footer-links:last-child{
+    grid-column:auto !important;
+  }
+
+  body.site-v15 .footer-links{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    column-gap:12px !important;
+  }
+
+  body.site-v15 .footer-links strong{
+    grid-column:1 / -1 !important;
+  }
+
+  body.site-v15 .footer-links .developer-login-link{
+    width:100% !important;
+    justify-content:center !important;
+  }
 }

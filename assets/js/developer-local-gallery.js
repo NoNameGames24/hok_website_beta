@@ -1,16 +1,23 @@
+// Author: NoNameGames - Lou
 (() => {
   'use strict';
+  if (window.HoKAccessDenied) return;
 
+  const auth = window.HoKAuth;
+  const currentUser = auth.getCurrentUser();
   const api = window.HoKLocal;
   const categoryList = document.getElementById('local-category-list');
   const categorySelect = document.getElementById('local-gallery-category');
   const form = document.getElementById('local-gallery-form');
   const cancel = document.getElementById('local-gallery-cancel');
   const openCategoryIds = new Set();
+  const canManageAll = auth.hasPermission('gallery:manage-all', currentUser);
   let openStateInitialized = false;
 
   const getItems = () => api.getGallery(true);
   const getCategories = () => api.getGalleryCategories(true);
+  const owns = item => Boolean(item?.authorId && item.authorId === currentUser?.id);
+  const canManage = item => canManageAll || owns(item);
 
   const slugifyCategory = value => {
     const base = api.slugify(value);
@@ -34,7 +41,6 @@
   function populateCategories(selected = '') {
     const categories = getCategories();
     categorySelect.replaceChildren();
-
     categories.forEach(category => {
       const option = document.createElement('option');
       option.value = category.id;
@@ -42,10 +48,7 @@
       option.selected = category.id === selected;
       categorySelect.appendChild(option);
     });
-
-    if (selected && !categories.some(category => category.id === selected) && categories[0]) {
-      categorySelect.value = categories[0].id;
-    }
+    if (selected && !categories.some(category => category.id === selected) && categories[0]) categorySelect.value = categories[0].id;
   }
 
   function clearForm() {
@@ -57,6 +60,10 @@
   }
 
   function editItem(item) {
+    if (!canManage(item)) {
+      alert('Dieses Bild kann nur vom Ersteller, einem Admin oder einem Techniker bearbeitet werden.');
+      return;
+    }
     openCategoryIds.add(item.category);
     document.getElementById('local-gallery-id').value = item.id;
     document.getElementById('local-gallery-title').value = item.title || '';
@@ -68,11 +75,11 @@
   }
 
   function moveCategory(categoryId, direction) {
+    if (!canManageAll) return;
     const categories = getCategories();
     const currentIndex = categories.findIndex(category => category.id === categoryId);
     const targetIndex = currentIndex + direction;
     if (currentIndex < 0 || targetIndex < 0 || targetIndex >= categories.length) return;
-
     [categories[currentIndex], categories[targetIndex]] = [categories[targetIndex], categories[currentIndex]];
     api.setGalleryCategories(categories);
     openCategoryIds.add(categoryId);
@@ -82,8 +89,7 @@
   function moveItem(itemId, direction) {
     const items = getItems();
     const currentIndex = items.findIndex(item => item.id === itemId);
-    if (currentIndex < 0) return;
-
+    if (currentIndex < 0 || !canManage(items[currentIndex])) return;
     const currentItem = items[currentIndex];
     const categoryIndices = items.reduce((indices, item, index) => {
       if (item.category === currentItem.category) indices.push(index);
@@ -92,7 +98,6 @@
     const categoryPosition = categoryIndices.indexOf(currentIndex);
     const targetPosition = categoryPosition + direction;
     if (targetPosition < 0 || targetPosition >= categoryIndices.length) return;
-
     const targetIndex = categoryIndices[targetPosition];
     [items[currentIndex], items[targetIndex]] = [items[targetIndex], items[currentIndex]];
     api.setGallery(items);
@@ -100,10 +105,10 @@
     render(false);
   }
 
-  function makeButton(label, onClick, disabled = false) {
+  function makeButton(label, onClick, disabled = false, className = 'developer-secondary-button') {
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'developer-secondary-button';
+    button.className = className;
     button.textContent = label;
     button.disabled = disabled;
     button.addEventListener('click', onClick);
@@ -111,8 +116,9 @@
   }
 
   function makeGalleryItem(item, categoryItems, itemIndex) {
+    const manageable = canManage(item);
     const card = document.createElement('article');
-    card.className = `developer-gallery-item${item.deleted ? ' is-deleted' : ''}`;
+    card.className = `developer-gallery-item${item.deleted ? ' is-deleted' : ''}${manageable ? '' : ' is-locked'}`;
 
     const image = document.createElement('img');
     image.src = item.dataUrl || item.image || 'assets/images/painting-02.webp';
@@ -122,13 +128,11 @@
 
     const box = document.createElement('div');
     box.className = 'developer-gallery-item-content';
-
     const titleRow = document.createElement('div');
     titleRow.className = 'developer-gallery-item-title';
     const title = document.createElement('h3');
     title.textContent = item.title || 'Bild';
     titleRow.appendChild(title);
-
     if (item.deleted) {
       const state = document.createElement('span');
       state.className = 'developer-deleted-badge';
@@ -138,25 +142,35 @@
 
     const description = document.createElement('p');
     description.textContent = item.description || 'Keine Beschreibung hinterlegt.';
-
+    const author = document.createElement('p');
+    author.className = 'developer-entry-author';
+    author.textContent = `Hochgeladen von ${item.authorName || 'Nicht zugeordnet'}`;
     const actions = document.createElement('div');
     actions.className = 'developer-entry-actions developer-gallery-item-actions';
 
-    actions.append(
-      makeButton('Nach oben', () => moveItem(item.id, -1), itemIndex === 0),
-      makeButton('Nach unten', () => moveItem(item.id, 1), itemIndex === categoryItems.length - 1),
-      makeButton('Bearbeiten', () => editItem(item)),
-      makeButton(item.deleted ? 'Wiederherstellen' : 'Löschen', () => {
-        const all = getItems();
-        const target = all.find(entry => entry.id === item.id);
-        if (target) target.deleted = !target.deleted;
-        api.setGallery(all);
-        openCategoryIds.add(item.category);
-        render(false);
-      })
-    );
+    if (manageable) {
+      actions.append(
+        makeButton('Nach oben', () => moveItem(item.id, -1), itemIndex === 0),
+        makeButton('Nach unten', () => moveItem(item.id, 1), itemIndex === categoryItems.length - 1),
+        makeButton('Bearbeiten', () => editItem(item)),
+        makeButton(item.deleted ? 'Wiederherstellen' : 'Löschen', () => {
+          const all = getItems();
+          const target = all.find(entry => entry.id === item.id);
+          if (!target || !canManage(target)) return;
+          target.deleted = !target.deleted;
+          api.setGallery(all);
+          openCategoryIds.add(item.category);
+          render(false);
+        })
+      );
+    } else {
+      const lock = document.createElement('span');
+      lock.className = 'developer-permission-note';
+      lock.textContent = 'Nur eigenes Bild bearbeitbar';
+      actions.appendChild(lock);
+    }
 
-    box.append(titleRow, description, actions);
+    box.append(titleRow, description, author, actions);
     card.append(image, box);
     return card;
   }
@@ -165,7 +179,6 @@
     const categories = getCategories();
     const items = getItems();
     categoryList.replaceChildren();
-
     if (!openStateInitialized && categories[0]) {
       openCategoryIds.add(categories[0].id);
       openStateInitialized = true;
@@ -175,7 +188,6 @@
       const categoryItems = items.filter(item => item.category === category.id);
       const activeCount = categoryItems.filter(item => !item.deleted).length;
       const deletedCount = categoryItems.length - activeCount;
-
       const details = document.createElement('details');
       details.className = 'developer-category-section';
       details.dataset.categoryId = category.id;
@@ -187,16 +199,12 @@
 
       const summary = document.createElement('summary');
       summary.className = 'developer-category-summary';
-
       const summaryText = document.createElement('div');
       const name = document.createElement('strong');
       name.textContent = category.name;
       const count = document.createElement('small');
-      count.textContent = deletedCount
-        ? `${imageCountLabel(activeCount)} aktiv · ${deletedCount} gelöscht`
-        : imageCountLabel(activeCount);
+      count.textContent = deletedCount ? `${imageCountLabel(activeCount)} aktiv · ${deletedCount} gelöscht` : imageCountLabel(activeCount);
       summaryText.append(name, count);
-
       const indicator = document.createElement('span');
       indicator.className = 'developer-category-indicator';
       indicator.setAttribute('aria-hidden', 'true');
@@ -205,52 +213,49 @@
 
       const body = document.createElement('div');
       body.className = 'developer-category-body';
-
-      const categoryActions = document.createElement('div');
-      categoryActions.className = 'developer-entry-actions developer-category-actions';
-      categoryActions.append(
-        makeButton('Kategorie nach oben', () => moveCategory(category.id, -1), categoryIndex === 0),
-        makeButton('Kategorie nach unten', () => moveCategory(category.id, 1), categoryIndex === categories.length - 1),
-        makeButton('Umbenennen', () => {
-          const next = prompt('Neuer Kategoriename:', category.name);
-          if (next === null || !next.trim()) return;
-          const all = getCategories();
-          const target = all.find(entry => entry.id === category.id);
-          if (target) target.name = next.trim();
-          api.setGalleryCategories(all);
-          openCategoryIds.add(category.id);
-          render(false);
-        })
-      );
-
-      if (!category.builtin) {
-        categoryActions.append(makeButton('Kategorie löschen', () => {
-          if (categoryItems.length) {
-            alert('Die Kategorie enthält noch Bilder, einschließlich gelöschter Einträge. Verschiebe diese Bilder zuerst in eine andere Kategorie.');
-            return;
-          }
-          if (!confirm(`Kategorie „${category.name}“ wirklich löschen?`)) return;
-          api.setGalleryCategories(getCategories().filter(entry => entry.id !== category.id));
-          openCategoryIds.delete(category.id);
-          render(false);
-        }));
+      if (canManageAll) {
+        const categoryActions = document.createElement('div');
+        categoryActions.className = 'developer-entry-actions developer-category-actions';
+        categoryActions.append(
+          makeButton('Kategorie nach oben', () => moveCategory(category.id, -1), categoryIndex === 0),
+          makeButton('Kategorie nach unten', () => moveCategory(category.id, 1), categoryIndex === categories.length - 1),
+          makeButton('Umbenennen', () => {
+            const next = prompt('Neuer Kategoriename:', category.name);
+            if (next === null || !next.trim()) return;
+            const all = getCategories();
+            const target = all.find(entry => entry.id === category.id);
+            if (target) target.name = next.trim();
+            api.setGalleryCategories(all);
+            openCategoryIds.add(category.id);
+            render(false);
+          })
+        );
+        if (!category.builtin) {
+          categoryActions.append(makeButton('Kategorie löschen', () => {
+            if (categoryItems.length) {
+              alert('Die Kategorie enthält noch Bilder. Verschiebe diese Bilder zuerst in eine andere Kategorie.');
+              return;
+            }
+            if (!confirm(`Kategorie „${category.name}“ wirklich löschen?`)) return;
+            api.setGalleryCategories(getCategories().filter(entry => entry.id !== category.id));
+            openCategoryIds.delete(category.id);
+            render(false);
+          }));
+        }
+        body.appendChild(categoryActions);
       }
 
       const itemList = document.createElement('div');
       itemList.className = 'developer-gallery-list developer-category-gallery-list';
-
       if (!categoryItems.length) {
         const empty = document.createElement('p');
         empty.className = 'developer-category-empty';
         empty.textContent = 'In dieser Kategorie sind noch keine Bilder vorhanden.';
         itemList.appendChild(empty);
       } else {
-        categoryItems.forEach((item, itemIndex) => {
-          itemList.appendChild(makeGalleryItem(item, categoryItems, itemIndex));
-        });
+        categoryItems.forEach((item, itemIndex) => itemList.appendChild(makeGalleryItem(item, categoryItems, itemIndex)));
       }
-
-      body.append(categoryActions, itemList);
+      body.appendChild(itemList);
       details.append(summary, body);
       categoryList.appendChild(details);
     });
@@ -264,10 +269,10 @@
 
   document.getElementById('local-category-form').addEventListener('submit', event => {
     event.preventDefault();
+    if (!canManageAll) return;
     const input = document.getElementById('local-category-name');
     const name = input.value.trim();
     if (!name) return;
-
     const category = { id: slugifyCategory(name), name, builtin: false };
     const categories = getCategories();
     categories.push(category);
@@ -279,7 +284,6 @@
 
   form.addEventListener('submit', event => {
     event.preventDefault();
-
     const id = document.getElementById('local-gallery-id').value;
     const title = document.getElementById('local-gallery-title').value.trim();
     const category = categorySelect.value;
@@ -288,31 +292,31 @@
 
     const saveItem = dataUrl => {
       const items = getItems();
-
       if (id) {
         const currentIndex = items.findIndex(item => item.id === id);
         const target = items[currentIndex];
-        if (!target) return;
-
+        if (!target || !canManage(target)) {
+          alert('Dieses Bild darf von deinem Account nicht bearbeitet werden.');
+          clearForm();
+          render(false);
+          return;
+        }
         const previousCategory = target.category;
         target.title = title;
         target.description = description;
+        target.updatedAt = new Date().toISOString();
         if (dataUrl) target.dataUrl = dataUrl;
-
         if (previousCategory !== category) {
           target.category = category;
           items.splice(currentIndex, 1);
           const lastTargetIndex = items.reduce((last, item, index) => item.category === category ? index : last, -1);
           items.splice(lastTargetIndex + 1, 0, target);
-        } else {
-          target.category = category;
         }
       } else {
         if (!dataUrl) {
           alert('Für ein neues Bild muss eine Datei ausgewählt werden.');
           return;
         }
-
         const item = {
           id: `gallery-${Date.now()}`,
           title,
@@ -320,7 +324,12 @@
           description,
           dataUrl,
           builtin: false,
-          deleted: false
+          deleted: false,
+          authorId: currentUser.id,
+          authorName: currentUser.displayName || currentUser.username,
+          authorUsername: currentUser.username,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
         };
         const lastTargetIndex = items.reduce((last, entry, index) => entry.category === category ? index : last, -1);
         items.splice(lastTargetIndex + 1, 0, item);
@@ -332,7 +341,6 @@
         alert('Das Bild ist für den lokalen Browserspeicher zu groß.');
         return;
       }
-
       openCategoryIds.add(category);
       clearForm();
       render(false);
@@ -349,8 +357,8 @@
   });
 
   cancel.addEventListener('click', clearForm);
-
   document.getElementById('local-gallery-reset').addEventListener('click', () => {
+    if (!canManageAll) return;
     if (!confirm('Alle lokalen Galerieänderungen und eigenen Kategorien zurücksetzen?')) return;
     localStorage.removeItem('hokLocalGalleryCollectionV4');
     localStorage.removeItem('hokLocalGalleryCategoriesV4');
@@ -364,5 +372,6 @@
 
   api.getGallery(true);
   api.getGalleryCategories(true);
+  auth.applyCurrentUserUI();
   render(false);
 })();

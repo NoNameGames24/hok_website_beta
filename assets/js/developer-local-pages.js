@@ -1,5 +1,7 @@
+// Author: NoNameGames - Lou
 (() => {
   'use strict';
+  if (window.HoKAccessDenied) return;
   const api = window.HoKLocal;
   const pages = window.HoKEditablePages || [];
   const search = document.getElementById('developer-page-search');

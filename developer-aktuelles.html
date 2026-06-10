@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="de"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8"><meta name="author" content="NoNameGames - Lou"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aktuelles verwalten · Entwicklerbereich</title>
 <link rel="icon" href="assets/favicon.ico"><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/developer-local.css">
-</head><body class="developer-local-page">
-<header class="developer-topbar"><a href="developer-dashboard.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span>Aktuelles verwalten</span></a><div class="developer-topbar-actions"><a class="developer-secondary-button" href="aktuelles.html" target="_blank">Vorschau</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
+</head><body class="developer-local-page" data-required-permission="news:create">
+<header class="developer-topbar"><a href="developer-dashboard.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span>Aktuelles verwalten</span></a><div class="developer-topbar-actions"><span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span><a class="developer-secondary-button" href="aktuelles.html" target="_blank">Vorschau</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
 <main class="developer-dashboard">
 <section class="developer-dashboard-intro"><p class="developer-mode-badge">Lokaler Testmodus</p><h1>Aktuelles verwalten</h1><p>Beiträge erhalten eine eigene Seite. Vorschaubild und Seitenbanner können aus dem vorhandenen Bildbestand gewählt oder neu hochgeladen werden.</p><p id="local-protocol-warning" class="developer-form-error" hidden>Du hast die Dateien direkt geöffnet. Starte zuerst START_LOCAL_SERVER.bat, sonst teilt Firefox die gespeicherten Änderungen möglicherweise nicht zwischen den Seiten.</p></section>
 <section class="developer-editor-layout">
@@ -17,7 +17,7 @@
 <p class="developer-field-hint">Hochgeladene Bilder werden für den lokalen Test im Browserspeicher abgelegt und automatisch verkleinert.</p>
 <div class="developer-entry-actions"><button class="developer-primary-button" type="submit">Speichern</button><button id="local-news-cancel" class="developer-secondary-button" type="button" hidden>Abbrechen</button></div>
 </form>
-<section class="developer-panel"><div class="developer-list-heading"><h2>Alle aktuellen Einträge</h2><button id="local-news-reset" class="developer-secondary-button" type="button">Standard wiederherstellen</button></div><div id="local-news-list" class="developer-entry-list"></div></section>
+<section class="developer-panel"><div class="developer-list-heading"><h2>Alle aktuellen Einträge</h2><button id="local-news-reset" class="developer-secondary-button" type="button" data-permission="news:manage-all">Standard wiederherstellen</button></div><div id="local-news-list" class="developer-entry-list"></div></section>
 </section></main>
-<script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-image-library.js"></script><script src="assets/js/developer-local-news.js"></script>
+<script src="assets/js/developer-auth.js"></script><script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-image-library.js"></script><script src="assets/js/developer-local-news.js"></script>
 </body></html>

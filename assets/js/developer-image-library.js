@@ -1,3 +1,4 @@
+// Author: NoNameGames - Lou
 window.HoKImageLibrary = [
   {
     "label": "Aktuelles – Seitenbanner",

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="NoNameGames - Lou">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b06">
+  <title>Mein Profil · Teamzugang</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/developer-local.css">
+</head>
+<body class="developer-local-page">
+<header class="developer-topbar">
+  <a href="developer-dashboard.html" class="developer-brand">
+    <img src="assets/images/hok-logo-gold-transparent.png" alt="">
+    <span>Mein Profil</span>
+  </a>
+  <div class="developer-topbar-actions">
+    <span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span>
+    <a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a>
+    <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
+  </div>
+</header>
+
+<main class="developer-dashboard developer-profile-dashboard">
+  <section class="developer-dashboard-intro">
+    <p class="developer-mode-badge">Persönlicher Bereich</p>
+    <h1>Mein Profil</h1>
+    <p>Hier können ausschließlich die Daten des aktuell angemeldeten Accounts geändert werden. Rolle und Kontostatus werden nur angezeigt.</p>
+  </section>
+
+  <form id="developer-profile-form" class="developer-panel developer-form developer-profile-form" novalidate>
+    <div class="developer-user-profile-head">
+      <div id="developer-profile-avatar-preview" class="developer-user-avatar developer-user-avatar-large" aria-label="Profilbildvorschau"></div>
+      <div class="developer-user-avatar-controls">
+        <label>Profilbild hochladen
+          <input id="developer-profile-avatar-file" type="file" accept="image/png,image/jpeg,image/webp">
+        </label>
+        <input id="developer-profile-avatar-data" type="hidden">
+        <button id="developer-profile-avatar-remove" class="developer-secondary-button" type="button">Profilbild entfernen</button>
+        <small>Das Bild wird auf maximal 512 × 512 Pixel verkleinert.</small>
+      </div>
+    </div>
+
+    <div class="developer-user-form-grid">
+      <label>Anzeigename
+        <input id="developer-profile-display-name" required maxlength="80" autocomplete="name">
+      </label>
+      <label>Benutzername
+        <input id="developer-profile-username" required minlength="3" maxlength="40" pattern="[A-Za-z0-9._-]+" autocomplete="username">
+      </label>
+      <label>E-Mail-Adresse
+        <input id="developer-profile-email" type="email" maxlength="160" autocomplete="email">
+      </label>
+      <label>Discord-Name
+        <input id="developer-profile-discord" maxlength="80" autocomplete="off">
+      </label>
+      <label>Rolle
+        <input id="developer-profile-role" readonly>
+      </label>
+      <label>Kontostatus
+        <input id="developer-profile-status" readonly>
+      </label>
+    </div>
+
+    <label>Öffentliche Profilbeschreibung
+      <textarea id="developer-profile-bio" rows="5" maxlength="1000"></textarea>
+    </label>
+
+    <section class="developer-profile-password">
+      <h2>Passwort ändern</h2>
+      <p class="developer-panel-intro">Leer lassen, wenn das Passwort unverändert bleiben soll.</p>
+      <div class="developer-user-form-grid">
+        <label>Aktuelles Passwort
+          <input id="developer-profile-current-password" type="password" autocomplete="current-password">
+        </label>
+        <label>Neues Passwort
+          <input id="developer-profile-new-password" type="password" minlength="8" maxlength="128" autocomplete="new-password">
+        </label>
+        <label>Neues Passwort wiederholen
+          <input id="developer-profile-new-password-confirm" type="password" minlength="8" maxlength="128" autocomplete="new-password">
+        </label>
+      </div>
+    </section>
+
+    <p id="developer-profile-error" class="developer-form-error" hidden></p>
+    <p id="developer-profile-success" class="developer-success-message" hidden></p>
+    <div class="developer-entry-actions">
+      <button class="developer-primary-button" type="submit">Eigenes Profil speichern</button>
+    </div>
+  </form>
+</main>
+<script src="assets/js/developer-auth.js"></script>
+<script src="assets/js/developer-local-guard.js"></script>
+<script src="assets/js/developer-local-profile.js"></script>
+</body>
+</html>

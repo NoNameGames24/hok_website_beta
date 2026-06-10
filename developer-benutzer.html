@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="NoNameGames - Lou">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b06">
+  <title>Benutzer verwalten · Teamzugang</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/developer-local.css">
+</head>
+<body class="developer-local-page" data-required-permission="users:view">
+<header class="developer-topbar">
+  <a href="developer-dashboard.html" class="developer-brand">
+    <img src="assets/images/hok-logo-gold-transparent.png" alt="">
+    <span>Benutzer verwalten</span>
+  </a>
+  <div class="developer-topbar-actions">
+    <span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span>
+    <a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a>
+    <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
+  </div>
+</header>
+
+<main class="developer-dashboard developer-user-dashboard">
+  <section class="developer-dashboard-intro">
+    <p class="developer-mode-badge">Lokaler Testmodus</p>
+    <h1>Benutzer verwalten</h1>
+    <p>Admins können Registrierungen annehmen oder ablehnen und Rollen vergeben. Admins dürfen alle fremden Accounts bannen oder entbannen. Support darf keine Admins und keine Supporter bannen oder entbannen.</p>
+    <p class="developer-system-warning"><strong>Persönliche Profildaten:</strong> Anzeigename, Benutzername, E-Mail, Discord, Profilbild, Profilbeschreibung und Passwort können ausschließlich vom jeweiligen Account unter „Mein Profil“ geändert werden.</p>
+  </section>
+
+  <section class="developer-user-stat-grid" aria-label="Benutzerstatus">
+    <button class="developer-user-stat" type="button" data-user-status="pending"><span id="local-user-count-pending">0</span><small>Warten auf Prüfung</small></button>
+    <button class="developer-user-stat" type="button" data-user-status="active"><span id="local-user-count-active">0</span><small>Angenommen</small></button>
+    <button class="developer-user-stat" type="button" data-user-status="rejected"><span id="local-user-count-rejected">0</span><small>Abgelehnt</small></button>
+    <button class="developer-user-stat" type="button" data-user-status="banned"><span id="local-user-count-banned">0</span><small>Gebannt</small></button>
+  </section>
+
+  <section class="developer-panel developer-user-toolbar">
+    <label>Benutzer suchen
+      <input id="local-user-search" type="search" placeholder="Name, Benutzername, E-Mail oder Discord">
+    </label>
+    <label>Status
+      <select id="local-user-status-filter">
+        <option value="all">Alle Status</option>
+        <option value="pending">Wartet auf Prüfung</option>
+        <option value="active">Angenommen</option>
+        <option value="rejected">Abgelehnt</option>
+        <option value="banned">Gebannt</option>
+      </select>
+    </label>
+    <label>Rolle
+      <select id="local-user-role-filter">
+        <option value="all">Alle Rollen</option>
+        <option value="member">Benutzer</option>
+        <option value="admin">Admin</option>
+        <option value="support">Support</option>
+        <option value="technician">Techniker</option>
+        <option value="socialmedia">SocialMedia</option>
+        <option value="balancing">Balancing</option>
+        <option value="eventler">Eventler</option>
+      </select>
+    </label>
+  </section>
+
+  <section class="developer-user-management-layout">
+    <section class="developer-panel developer-user-list-panel">
+      <div class="developer-list-heading"><div><h2>Registrierte Accounts</h2><p id="local-user-result-summary" class="developer-panel-intro">0 Accounts</p></div></div>
+      <div id="local-user-list" class="developer-user-list"></div>
+    </section>
+
+    <section class="developer-panel developer-user-editor-panel">
+      <div id="local-user-editor-placeholder" class="developer-user-editor-placeholder">
+        <img src="assets/images/icon-community.png" alt="" loading="lazy" decoding="async">
+        <h2>Account auswählen</h2>
+        <p>Wähle links einen Account aus, um Status, Rolle und Berechtigungen zu prüfen.</p>
+      </div>
+
+      <section id="local-user-editor" hidden>
+        <div class="developer-list-heading">
+          <div><p id="local-user-editor-status" class="developer-mode-badge">Account</p><h2 id="local-user-editor-title">Accountdetails</h2></div>
+          <button id="local-user-cancel" class="developer-secondary-button" type="button">Schließen</button>
+        </div>
+
+        <div class="developer-user-profile-head">
+          <div id="local-user-avatar-preview" class="developer-user-avatar developer-user-avatar-large" aria-label="Profilbild"></div>
+          <div>
+            <h3 id="local-user-display-name"></h3>
+            <p id="local-user-identity" class="developer-user-identity"></p>
+            <p id="local-user-discord" class="developer-user-meta"></p>
+          </div>
+        </div>
+
+        <dl class="developer-account-details">
+          <div><dt>Rolle</dt><dd id="local-user-role-label"></dd></div>
+          <div><dt>Status</dt><dd id="local-user-status-label"></dd></div>
+          <div><dt>Registriert</dt><dd id="local-user-registered"></dd></div>
+          <div><dt>Letzte Anmeldung</dt><dd id="local-user-last-login"></dd></div>
+          <div><dt>Profilbeschreibung</dt><dd id="local-user-bio"></dd></div>
+          <div><dt>Banngrund</dt><dd id="local-user-ban-reason-display"></dd></div>
+        </dl>
+
+        <section id="local-user-admin-controls" class="developer-account-control-section" data-permission="users:roles">
+          <h3>Admin-Einstellungen</h3>
+          <label>Rolle vergeben
+            <select id="local-user-role">
+              <option value="member">Benutzer</option>
+              <option value="admin">Admin</option>
+              <option value="support">Support</option>
+              <option value="technician">Techniker</option>
+              <option value="socialmedia">SocialMedia</option>
+              <option value="balancing">Balancing</option>
+              <option value="eventler">Eventler</option>
+            </select>
+          </label>
+          <label>Interne Adminnotiz
+            <textarea id="local-user-notes" rows="4" maxlength="2000"></textarea>
+          </label>
+          <div class="developer-entry-actions">
+            <button id="local-user-save-admin" class="developer-primary-button" type="button">Rolle und Notiz speichern</button>
+            <button id="local-user-accept" class="developer-secondary-button" type="button">Annehmen</button>
+            <button id="local-user-reject" class="developer-secondary-button" type="button">Ablehnen</button>
+          </div>
+        </section>
+
+        <section id="local-user-ban-controls" class="developer-account-control-section" data-permission="users:ban">
+          <h3>Accountsperre</h3>
+          <label>Banngrund
+            <textarea id="local-user-ban-reason" rows="3" maxlength="1000" placeholder="Pflichtangabe beim Bannen"></textarea>
+          </label>
+          <div class="developer-entry-actions">
+            <button id="local-user-ban" class="developer-secondary-button developer-danger-button" type="button">Bannen</button>
+            <button id="local-user-unban" class="developer-secondary-button" type="button">Entbannen</button>
+          </div>
+        </section>
+
+        <p id="local-user-form-error" class="developer-form-error" hidden></p>
+        <p id="local-user-form-success" class="developer-success-message" hidden></p>
+      </section>
+    </section>
+  </section>
+
+  <section class="developer-panel developer-user-audit-panel">
+    <div class="developer-list-heading">
+      <div><h2>Änderungsverlauf</h2><p class="developer-panel-intro">Registrierungen sowie Status-, Rollen- und Profilaktionen.</p></div>
+      <button id="local-user-audit-clear" class="developer-secondary-button" type="button" data-permission="audit:clear">Protokoll leeren</button>
+    </div>
+    <div id="local-user-audit-list" class="developer-user-audit-list"></div>
+  </section>
+</main>
+<script src="assets/js/developer-auth.js"></script>
+<script src="assets/js/developer-local-guard.js"></script>
+<script src="assets/js/developer-local-users.js"></script>
+</body>
+</html>

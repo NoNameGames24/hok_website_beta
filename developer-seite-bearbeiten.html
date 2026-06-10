@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="de"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8"><meta name="author" content="NoNameGames - Lou"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seite bearbeiten · Entwicklerbereich</title>
 <link rel="icon" href="assets/favicon.ico"><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/developer-local.css">
-</head><body class="developer-local-page">
-<header class="developer-topbar"><a href="developer-seiten.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span id="developer-page-editor-brand">Seite bearbeiten</span></a><div class="developer-topbar-actions"><a id="developer-page-preview-link" class="developer-secondary-button" target="_blank">Vorschau</a><a class="developer-secondary-button" href="developer-seiten.html">Seitenauswahl</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
+</head><body class="developer-local-page" data-required-permission="pages:edit">
+<header class="developer-topbar"><a href="developer-seiten.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span id="developer-page-editor-brand">Seite bearbeiten</span></a><div class="developer-topbar-actions"><span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span><a id="developer-page-preview-link" class="developer-secondary-button" target="_blank">Vorschau</a><a class="developer-secondary-button" href="developer-seiten.html">Seitenauswahl</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
 <main class="developer-dashboard developer-page-editor-shell">
 <section class="developer-dashboard-intro"><p class="developer-mode-badge">Lokaler Testmodus</p><h1 id="developer-page-editor-title">Seite bearbeiten</h1><p id="developer-page-editor-file"></p><p id="developer-page-load-error" class="developer-form-error" hidden></p></section>
 <form id="developer-page-form" class="developer-form" hidden>
@@ -21,5 +21,5 @@
 <div class="developer-entry-actions developer-page-save-actions"><button class="developer-primary-button" type="submit">Seite speichern</button><button id="developer-page-reset" class="developer-secondary-button" type="button">Lokale Anpassung löschen</button></div><p id="developer-page-status" class="developer-success-message" hidden>Seite gespeichert.</p>
 </form>
 </main>
-<script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-image-library.js"></script><script src="assets/js/developer-page-catalog.js"></script><script src="assets/js/developer-local-page-editor.js"></script>
+<script src="assets/js/developer-auth.js"></script><script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-image-library.js"></script><script src="assets/js/developer-page-catalog.js"></script><script src="assets/js/developer-local-page-editor.js"></script>
 </body></html>

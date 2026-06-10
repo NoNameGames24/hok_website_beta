@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta name="author" content="NoNameGames - Lou">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#170b06">
   <title>Galerie verwalten · Entwicklerbereich</title>
@@ -9,13 +10,14 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/developer-local.css">
 </head>
-<body class="developer-local-page">
+<body class="developer-local-page" data-required-permission="gallery:create">
 <header class="developer-topbar">
   <a href="developer-dashboard.html" class="developer-brand">
     <img src="assets/images/hok-logo-gold-transparent.png" alt="">
     <span>Galerie verwalten</span>
   </a>
   <div class="developer-topbar-actions">
+    <span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span>
     <a class="developer-secondary-button" href="galerie.html" target="_blank">Galerie öffnen</a>
     <a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a>
     <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
@@ -50,9 +52,9 @@
           <h2>Kategorien und Bilder</h2>
           <p class="developer-panel-intro">Kategorie öffnen, Bilder bearbeiten und ihre Reihenfolge innerhalb der Kategorie ändern.</p>
         </div>
-        <button id="local-gallery-reset" class="developer-secondary-button" type="button">Galerie zurücksetzen</button>
+        <button id="local-gallery-reset" class="developer-secondary-button" type="button" data-permission="gallery:manage-all">Galerie zurücksetzen</button>
       </div>
-      <form id="local-category-form" class="developer-inline-form">
+      <form id="local-category-form" class="developer-inline-form" data-permission="gallery:manage-all">
         <input id="local-category-name" placeholder="Neue Kategorie" required>
         <button class="developer-secondary-button" type="submit">Kategorie erstellen</button>
       </form>
@@ -61,6 +63,7 @@
   </section>
 </main>
 
+<script src="assets/js/developer-auth.js"></script>
 <script src="assets/js/developer-local-guard.js"></script>
 <script src="assets/js/local-content-runtime.js"></script>
 <script src="assets/js/developer-local-gallery.js"></script>

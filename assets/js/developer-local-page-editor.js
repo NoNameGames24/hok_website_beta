@@ -1,5 +1,7 @@
+// Author: NoNameGames - Lou
 (() => {
   'use strict';
+  if (window.HoKAccessDenied) return;
   const api = window.HoKLocal;
   const catalog = window.HoKEditablePages || [];
   const library = window.HoKImageLibrary || [];

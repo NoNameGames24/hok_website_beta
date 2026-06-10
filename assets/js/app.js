@@ -1,4 +1,4 @@
-// NoNameGames - Lou
+// Author: NoNameGames - Lou
 (function(){
   const year = document.querySelector('[data-year]');
   if(year) year.textContent = new Date().getFullYear();
@@ -43,18 +43,5 @@
     });
   }
 
-  if(window.innerWidth > 700 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && !document.querySelector('.snowflake')){
-    const count = Math.min(18, Math.floor(window.innerWidth/90));
-    for(let i=0;i<count;i++){
-      const f=document.createElement('span');
-      f.className='snowflake';
-      f.textContent = i%4===0 ? '✦' : '•';
-      f.style.left = Math.random()*100+'vw';
-      f.style.animationDuration = (9+Math.random()*12)+'s';
-      f.style.animationDelay = (-Math.random()*12)+'s';
-      f.style.fontSize = (10+Math.random()*10)+'px';
-      f.style.opacity = String(.22+Math.random()*.48);
-      document.body.appendChild(f);
-    }
-  }
+  // Decorative snow particles were removed because they could cover interactive homepage icons.
 })();

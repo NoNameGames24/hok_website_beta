@@ -1,4 +1,6 @@
+// Author: NoNameGames - Lou
 (() => {
+  if (window.HoKAccessDenied) return;
   const api = window.HoKLocal;
   const warning = document.getElementById('local-protocol-warning');
   if (location.protocol === 'file:') warning.hidden = false;

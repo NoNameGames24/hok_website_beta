@@ -2,42 +2,77 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
+  <meta name="author" content="NoNameGames - Lou">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#170b06">
-  <title>Entwicklerzugang · History of Khorinis</title>
+  <title>Anmeldung · History of Khorinis</title>
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/developer-local.css">
 </head>
-<body class="developer-local-page">
-  <main class="developer-login-shell">
-    <section class="developer-login-card">
-      <a class="developer-back-link" href="index.html">← Zur Website</a>
-      <div class="developer-login-header">
-        <img class="developer-login-logo" src="assets/images/hok-logo-gold-transparent.png" alt="History of Khorinis">
-        <div>
-          <p class="developer-mode-badge">Lokaler Testmodus</p>
-          <h1>Entwicklerzugang</h1>
-        </div>
+<body class="developer-local-page developer-auth-page">
+  <main class="developer-auth-shell">
+    <a class="developer-back-link developer-auth-back" href="index.html">← Zur Website</a>
+    <header class="developer-auth-header">
+      <img class="developer-login-logo" src="assets/images/hok-logo-gold-transparent.png" alt="History of Khorinis">
+      <div>
+        <p class="developer-mode-badge">Lokaler Testmodus</p>
+        <h1>Teamzugang</h1>
+        <p>Anmelden oder einen neuen Account zur Prüfung einreichen.</p>
       </div>
-      <p class="developer-login-intro">Dieser Zugang dient ausschließlich zur lokalen Prüfung der Entwickleroberfläche.</p>
+    </header>
 
-      <form id="developer-login-form" class="developer-form" novalidate>
-        <label>
-          Benutzername
-          <input id="developer-username" name="username" type="text" autocomplete="username" required>
-        </label>
-        <label>
-          Passwort
-          <input id="developer-password" name="password" type="password" autocomplete="current-password" required>
-        </label>
-        <p id="developer-login-error" class="developer-form-error" hidden>Benutzername oder Passwort ist falsch.</p>
-        <button class="developer-primary-button" type="submit">Anmelden</button>
-      </form>
+    <div class="developer-auth-grid">
+      <section class="developer-login-card">
+        <h2>Anmelden</h2>
+        <form id="developer-login-form" class="developer-form" novalidate>
+          <label>
+            Benutzername oder E-Mail-Adresse
+            <input id="developer-username" name="username" type="text" autocomplete="username" required>
+          </label>
+          <label>
+            Passwort
+            <input id="developer-password" name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <p id="developer-login-error" class="developer-form-error" hidden></p>
+          <button class="developer-primary-button" type="submit">Anmelden</button>
+        </form>
+      </section>
 
-      <p id="file-protocol-warning" class="developer-form-error" hidden>Für funktionierende Änderungen bitte START_LOCAL_SERVER.bat verwenden.</p><p class="developer-test-hint">Testdaten: <strong>Admin</strong> / <strong>Passwort</strong></p>
-    </section>
+      <section class="developer-login-card">
+        <h2>Account erstellen</h2>
+        <p class="developer-panel-intro">Neue Accounts erhalten zunächst keine Teamrolle und müssen von einem Admin angenommen werden.</p>
+        <form id="developer-register-form" class="developer-form" novalidate>
+          <label>
+            Anzeigename
+            <input id="register-display-name" type="text" maxlength="80" autocomplete="name" required>
+          </label>
+          <label>
+            Benutzername
+            <input id="register-username" type="text" minlength="3" maxlength="40" pattern="[A-Za-z0-9._-]+" autocomplete="username" required>
+          </label>
+          <label>
+            E-Mail-Adresse
+            <input id="register-email" type="email" maxlength="160" autocomplete="email">
+          </label>
+          <label>
+            Passwort
+            <input id="register-password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required>
+          </label>
+          <label>
+            Passwort wiederholen
+            <input id="register-password-confirm" type="password" minlength="8" maxlength="128" autocomplete="new-password" required>
+          </label>
+          <p id="developer-register-error" class="developer-form-error" hidden></p>
+          <p id="developer-register-success" class="developer-success-message" hidden></p>
+          <button class="developer-primary-button" type="submit">Account einreichen</button>
+        </form>
+      </section>
+    </div>
+
+    <p id="file-protocol-warning" class="developer-form-error" hidden>Für funktionierende Änderungen bitte START_LOCAL_SERVER.bat verwenden.</p>
   </main>
-  <script src="assets/js/developer-local-login.js"></script><script>if(location.protocol==="file:")document.getElementById("file-protocol-warning").hidden=false;</script>
+  <script src="assets/js/developer-auth.js"></script>
+  <script src="assets/js/developer-local-login.js"></script>
 </body>
 </html>

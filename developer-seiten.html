@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="de"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8"><meta name="author" content="NoNameGames - Lou"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seiten bearbeiten · Entwicklerbereich</title>
 <link rel="icon" href="assets/favicon.ico"><link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/developer-local.css">
-</head><body class="developer-local-page">
-<header class="developer-topbar"><a href="developer-dashboard.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span>Seiten bearbeiten</span></a><div class="developer-topbar-actions"><a class="developer-secondary-button" href="index.html" target="_blank">Website öffnen</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
+</head><body class="developer-local-page" data-required-permission="pages:edit">
+<header class="developer-topbar"><a href="developer-dashboard.html" class="developer-brand"><img src="assets/images/hok-logo-gold-transparent.png" alt=""><span>Seiten bearbeiten</span></a><div class="developer-topbar-actions"><span class="developer-current-account"><strong data-current-user-name></strong><small data-current-user-role></small></span><a class="developer-secondary-button" href="index.html" target="_blank">Website öffnen</a><a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a><button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button></div></header>
 <main class="developer-dashboard">
 <section class="developer-dashboard-intro"><p class="developer-mode-badge">Lokaler Testmodus</p><h1>Seite auswählen</h1><p>Wähle zuerst die Seite. Danach können Seitentitel, Beschreibung, Banner, Hero-Text und der vollständige Seiteninhalt bearbeitet werden.</p><p id="local-protocol-warning" class="developer-form-error" hidden>Starte START_LOCAL_SERVER.bat. Das Laden der vorhandenen Seitendaten funktioniert nicht zuverlässig über file://.</p></section>
 <section class="developer-panel developer-page-filter"><label>Seite suchen<input id="developer-page-search" type="search" placeholder="Titel oder Dateiname"></label><div id="developer-page-summary"></div></section>
 <div id="developer-page-groups" class="developer-page-groups"></div>
 </main>
-<script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-page-catalog.js"></script><script src="assets/js/developer-local-pages.js"></script>
+<script src="assets/js/developer-auth.js"></script><script src="assets/js/developer-local-guard.js"></script><script src="assets/js/local-content-runtime.js"></script><script src="assets/js/developer-page-catalog.js"></script><script src="assets/js/developer-local-pages.js"></script>
 </body></html>
