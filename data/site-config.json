@@ -1,9 +1,9 @@
 {
   "project": "History of Khorinis Website",
   "subtitle": "Helle Nordmar-Spielhomepage für History of Khorinis Roleplay",
-  "version": "v3",
+  "version": "v0.0.4.7-local-dev",
   "originalWiki": "https://www.historyofkhorinis.de/dokuwiki/doku.php?id=start",
-  "generated": "2026-06-04",
+  "generated": "2026-06-10",
   "truthStatus": "Teilimport erweitert; keine 100%-Vollmigration ohne Original-Volltext.",
   "author": "NoNameGames - Lou"
 }

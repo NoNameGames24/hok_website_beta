@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b06">
+  <title>Entwickler-Dashboard · History of Khorinis</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/developer-local.css">
+</head>
+<body class="developer-local-page">
+  <header class="developer-topbar">
+    <a href="index.html" class="developer-brand">
+      <img src="assets/images/hok-logo-gold-transparent.png" alt="">
+      <span>Entwickler-Dashboard</span>
+    </a>
+    <div class="developer-topbar-actions">
+      <span class="developer-mode-badge">Lokaler Testmodus</span>
+      <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
+    </div>
+  </header>
+
+  <main class="developer-dashboard">
+    <section class="developer-dashboard-intro">
+      <h1>Willkommen, Admin</h1>
+      <p>Wähle einen Bereich zur lokalen Prüfung. Änderungen werden nur im Browser gespeichert und nicht auf der öffentlichen Website veröffentlicht.</p>
+    </section>
+
+    <section class="developer-card-grid">
+      <a class="developer-module-card" href="developer-aktuelles.html">
+        <img class="developer-module-icon" src="assets/images/aktuelles_verwalten.png" alt="" loading="lazy" decoding="async">
+        <h2>Aktuelles verwalten</h2>
+        <p>Neue Beiträge anlegen, bestehende Testbeiträge bearbeiten oder löschen.</p>
+      </a>
+
+      <a class="developer-module-card" href="developer-galerie.html">
+        <img class="developer-module-icon" src="assets/images/galerie_verwalten.png" alt="" loading="lazy" decoding="async">
+        <h2>Galerie verwalten</h2>
+        <p>Bilder auswählen, Vorschaudaten prüfen und lokale Galerieeinträge testen.</p>
+      </a>
+
+      <a class="developer-module-card" href="developer-seiten.html">
+        <img class="developer-module-icon" src="assets/images/seitendaten_bearbeiten.png" alt="" loading="lazy" decoding="async">
+        <h2>Seitendaten bearbeiten</h2>
+        <p>Beliebige öffentliche Seite auswählen und Inhalte, Banner und Seitendaten detailliert bearbeiten.</p>
+      </a>
+
+      <a class="developer-module-card" href="index.html">
+        <img class="developer-module-icon" src="assets/images/website_oeffnen.png" alt="" loading="lazy" decoding="async">
+        <h2>Website öffnen</h2>
+        <p>Zur öffentlichen lokalen Vorschau zurückkehren.</p>
+      </a>
+    </section>
+  </main>
+  <script src="assets/js/developer-local-guard.js"></script>
+</body>
+</html>

@@ -244,5 +244,23 @@
     "title": "Community-Event",
     "file": "aktuelles/community-event.html",
     "source": "local"
+  },
+  {
+    "title": "Hardcore RP",
+    "file": "hardcore-rp.html",
+    "group": "Hauptseite",
+    "source": "local"
+  },
+  {
+    "title": "Aktive Community",
+    "file": "community.html",
+    "group": "Hauptseite",
+    "source": "local"
+  },
+  {
+    "title": "Lebendige Welt",
+    "file": "lebendige-welt.html",
+    "group": "Hauptseite",
+    "source": "local"
   }
 ]

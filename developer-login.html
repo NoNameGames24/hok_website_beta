@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b06">
+  <title>Entwicklerzugang · History of Khorinis</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/developer-local.css">
+</head>
+<body class="developer-local-page">
+  <main class="developer-login-shell">
+    <section class="developer-login-card">
+      <a class="developer-back-link" href="index.html">← Zur Website</a>
+      <div class="developer-login-header">
+        <img class="developer-login-logo" src="assets/images/hok-logo-gold-transparent.png" alt="History of Khorinis">
+        <div>
+          <p class="developer-mode-badge">Lokaler Testmodus</p>
+          <h1>Entwicklerzugang</h1>
+        </div>
+      </div>
+      <p class="developer-login-intro">Dieser Zugang dient ausschließlich zur lokalen Prüfung der Entwickleroberfläche.</p>
+
+      <form id="developer-login-form" class="developer-form" novalidate>
+        <label>
+          Benutzername
+          <input id="developer-username" name="username" type="text" autocomplete="username" required>
+        </label>
+        <label>
+          Passwort
+          <input id="developer-password" name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <p id="developer-login-error" class="developer-form-error" hidden>Benutzername oder Passwort ist falsch.</p>
+        <button class="developer-primary-button" type="submit">Anmelden</button>
+      </form>
+
+      <p id="file-protocol-warning" class="developer-form-error" hidden>Für funktionierende Änderungen bitte START_LOCAL_SERVER.bat verwenden.</p><p class="developer-test-hint">Testdaten: <strong>Admin</strong> / <strong>Passwort</strong></p>
+    </section>
+  </main>
+  <script src="assets/js/developer-local-login.js"></script><script>if(location.protocol==="file:")document.getElementById("file-protocol-warning").hidden=false;</script>
+</body>
+</html>

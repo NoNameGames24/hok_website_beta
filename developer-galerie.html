@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#170b06">
+  <title>Galerie verwalten · Entwicklerbereich</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/developer-local.css">
+</head>
+<body class="developer-local-page">
+<header class="developer-topbar">
+  <a href="developer-dashboard.html" class="developer-brand">
+    <img src="assets/images/hok-logo-gold-transparent.png" alt="">
+    <span>Galerie verwalten</span>
+  </a>
+  <div class="developer-topbar-actions">
+    <a class="developer-secondary-button" href="galerie.html" target="_blank">Galerie öffnen</a>
+    <a class="developer-secondary-button" href="developer-dashboard.html">Dashboard</a>
+    <button id="developer-logout" class="developer-secondary-button" type="button">Abmelden</button>
+  </div>
+</header>
+
+<main class="developer-dashboard">
+  <section class="developer-dashboard-intro">
+    <p class="developer-mode-badge">Lokaler Testmodus</p>
+    <h1>Galerie verwalten</h1>
+    <p>Bilder werden einer Kategorie zugeordnet und erscheinen dort automatisch auf der Galerie-Seite.</p>
+  </section>
+
+  <section class="developer-editor-layout developer-gallery-editor-layout">
+    <form id="local-gallery-form" class="developer-panel developer-form">
+      <h2 id="local-gallery-form-title">Bild hinzufügen</h2>
+      <input id="local-gallery-id" type="hidden">
+      <label>Titel<input id="local-gallery-title" required></label>
+      <label>Kategorie<select id="local-gallery-category" required></select></label>
+      <label>Bild auswählen<input id="local-gallery-file" type="file" accept="image/png,image/jpeg,image/webp"></label>
+      <p class="developer-field-hint">Beim Bearbeiten bleibt das vorhandene Bild erhalten, solange keine neue Datei ausgewählt wird.</p>
+      <label>Beschreibung<textarea id="local-gallery-description" rows="4"></textarea></label>
+      <div class="developer-entry-actions">
+        <button class="developer-primary-button" type="submit">Speichern</button>
+        <button id="local-gallery-cancel" class="developer-secondary-button" type="button" hidden>Abbrechen</button>
+      </div>
+    </form>
+
+    <section class="developer-panel developer-category-manager">
+      <div class="developer-list-heading">
+        <div>
+          <h2>Kategorien und Bilder</h2>
+          <p class="developer-panel-intro">Kategorie öffnen, Bilder bearbeiten und ihre Reihenfolge innerhalb der Kategorie ändern.</p>
+        </div>
+        <button id="local-gallery-reset" class="developer-secondary-button" type="button">Galerie zurücksetzen</button>
+      </div>
+      <form id="local-category-form" class="developer-inline-form">
+        <input id="local-category-name" placeholder="Neue Kategorie" required>
+        <button class="developer-secondary-button" type="submit">Kategorie erstellen</button>
+      </form>
+      <div id="local-category-list" class="developer-category-list developer-category-accordion"></div>
+    </section>
+  </section>
+</main>
+
+<script src="assets/js/developer-local-guard.js"></script>
+<script src="assets/js/local-content-runtime.js"></script>
+<script src="assets/js/developer-local-gallery.js"></script>
+</body>
+</html>
